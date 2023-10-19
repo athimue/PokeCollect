@@ -20,6 +20,11 @@ struct ContentView: View {
                     Image(systemName: "magnifyingglass")
                     Text("Search")
                 }
+            TeamView()
+                .tabItem {
+                    Image(systemName: "list.star")
+                    Text("Team")
+                }
             CollectionView()
                 .tabItem {
                     Image(systemName: "list.star")
