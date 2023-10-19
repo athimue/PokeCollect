@@ -9,11 +9,15 @@ import Foundation
 import OptionallyDecodable
 
 class ApiTypeDto: Codable {
-    let name: String?
+    let name: String
     let image: String
     
-    init(name: String?, image: String) {
+    init(name: String, image: String) {
         self.name = name
         self.image = image
     }
+}
+
+extension ApiTypeDto {
+    var toType: Type { Type(name: self.name, image: self.image, englishName: "")}
 }
