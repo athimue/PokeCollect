@@ -22,7 +22,7 @@ struct ContentView: View {
                 }
             TeamView()
                 .tabItem {
-                    Image(systemName: "list.star")
+                    Image(systemName: "archivebox.fill")
                     Text("Team")
                 }
             CollectionView()

@@ -9,6 +9,6 @@ import SwiftUI
 
 struct CollectionView: View {
     var body: some View {
-        Text("This is the collectiob view")
+        Text("This is the collection view")
     }
 }
