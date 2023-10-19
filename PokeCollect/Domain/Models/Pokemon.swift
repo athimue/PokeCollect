@@ -10,5 +10,6 @@ import Foundation
 struct Pokemon: Codable, Hashable, Identifiable {
     var id: Int;
     var name: String;
-    var url: String;
+    var image: String;
+    var types: [Type];
 }
