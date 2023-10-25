@@ -9,7 +9,7 @@ import Foundation
 enum APIPreEvolutionUnion: Codable {
     case apiPreEvolutionClass(APIPreEvolutionDto)
     case enumeration(APIPreEvolutionEnum)
-    
+
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         if let x = try? container.decode(APIPreEvolutionEnum.self) {
@@ -22,7 +22,7 @@ enum APIPreEvolutionUnion: Codable {
         }
         throw DecodingError.typeMismatch(APIPreEvolutionUnion.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for APIPreEvolutionUnion"))
     }
-    
+
     func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         switch self {
@@ -37,7 +37,7 @@ enum APIPreEvolutionUnion: Codable {
 class APIPreEvolutionDto: Codable {
     let name: String
     let pokedexIdd: Int
-    
+
     init(name: String, pokedexIdd: Int) {
         self.name = name
         self.pokedexIdd = pokedexIdd

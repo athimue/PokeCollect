@@ -12,13 +12,10 @@ protocol GetTypesUseCaseProtocol {
     func invoke(completion: @escaping (Result<[Type], Error>) -> Void)
 }
 
-
-class GetTypesPokemonsUseCase : GetTypesUseCaseProtocol {
-    
+class GetTypesPokemonsUseCase: GetTypesUseCaseProtocol {
     @Injected private var typeRepository: TypeRepositoryProtocol
-    
-    func invoke(completion: @escaping (Result<[Type], Error>) -> Void){
+
+    func invoke(completion: @escaping (Result<[Type], Error>) -> Void) {
         return typeRepository.fetchTypes(completion: completion)
     }
 }
-

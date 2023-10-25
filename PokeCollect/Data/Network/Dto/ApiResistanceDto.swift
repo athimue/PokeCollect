@@ -8,12 +8,11 @@
 import Foundation
 import OptionallyDecodable
 
-class ApiResistanceDto : Codable {
-    
+class ApiResistanceDto: Codable {
     var name: String?
     let damageMultiplier: Double?
     var damageRelation: DamageRelation?
-    
+
     init(name: String?, damageMultiplier: Double?, damageRelation: DamageRelation?) {
         self.name = name
         self.damageMultiplier = damageMultiplier
@@ -22,10 +21,10 @@ class ApiResistanceDto : Codable {
 }
 
 enum DamageRelation: String, Codable {
-    case immune = "immune"
-    case neutral = "neutral"
-    case resistant = "resistant"
+    case immune
+    case neutral
+    case resistant
     case twiceResistant = "twice_resistant"
     case twiceVulnerable = "twice_vulnerable"
-    case vulnerable = "vulnerable"
+    case vulnerable
 }

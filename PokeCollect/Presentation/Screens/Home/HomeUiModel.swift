@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct HomeUiModel: Identifiable{
+struct HomeUiModel: Identifiable {
     let id = UUID()
-    let name : String
-    let pokemons : [Pokemon]
+    let name: String
+    let pokemons: [Pokemon]
 }

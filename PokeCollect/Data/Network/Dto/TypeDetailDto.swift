@@ -12,7 +12,7 @@ class TypeDetailDto: Codable {
     let name: String
     let image: String
     let englishName: String
-    
+
     init(id: Int, name: String, image: String, englishName: String) {
         self.id = id
         self.name = name

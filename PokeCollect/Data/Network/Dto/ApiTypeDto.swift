@@ -11,7 +11,7 @@ import OptionallyDecodable
 class ApiTypeDto: Codable {
     let name: String
     let image: String
-    
+
     init(name: String, image: String) {
         self.name = name
         self.image = image
@@ -19,5 +19,5 @@ class ApiTypeDto: Codable {
 }
 
 extension ApiTypeDto {
-    var toType: Type { Type(name: self.name, image: self.image, englishName: "")}
+    var toType: Type { Type(name: self.name, image: self.image, englishName: "") }
 }

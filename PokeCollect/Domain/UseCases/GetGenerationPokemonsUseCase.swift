@@ -5,19 +5,18 @@
 //  Created by Clusel Mathieu on 18/10/2023.
 //
 
+import Combine
 import Foundation
 import Resolver
 
 protocol GetGenerationPokemonsUseCaseProtocol {
-    func invoke(generation: Int, completion: @escaping (Result<[Pokemon], Error>) -> Void)
+    func invoke(generation: Int) -> AnyPublisher<[Pokemon], Error>
 }
 
-
-class GetGenerationPokemonsUseCase : GetGenerationPokemonsUseCaseProtocol {
-    
+class GetGenerationPokemonsUseCase: GetGenerationPokemonsUseCaseProtocol {
     @Injected private var pokemonRepository: PokemonRepositoryProtocol
-    
-    func invoke(generation: Int, completion: @escaping (Result<[Pokemon], Error>) -> Void){
-        return pokemonRepository.fetchPokemonGeneration(generation: generation, completion: completion)
+
+    func invoke(generation: Int) -> AnyPublisher<[Pokemon], Error> {
+        return pokemonRepository.fetchPokemonGeneration(generation: generation).eraseToAnyPublisher()
     }
 }

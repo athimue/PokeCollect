@@ -8,24 +8,23 @@
 import SwiftUI
 
 struct HomeView: View {
-    
-    @StateObject var viewModel : HomeViewModel = HomeViewModel()
+    @StateObject var viewModel: HomeViewModel = .init()
     @State var isLoaded = false
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             Text("POKECOLLECT")
-                .font(.system(size: 30, weight:.bold, design: .monospaced))
+                .font(.system(size: 30, weight: .bold, design: .monospaced))
                 .foregroundStyle(.red)
                 .padding(10)
                 .multilineTextAlignment(.center)
-                .frame(maxWidth:.infinity)
+                .frame(maxWidth: .infinity)
             List {
                 Text("POKEMONS")
-                    .font(.system(size: 20, weight:.bold, design: .monospaced))
+                    .font(.system(size: 20, weight: .bold, design: .monospaced))
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
                     .listRowSeparator(.hidden)
-                ForEach(viewModel.homeUiModel.sorted{ $0.name < $1.name}) { generation in
+                ForEach(viewModel.homeUiModel.sorted { $0.name < $1.name }) { generation in
                     DisclosureGroup {
                         ForEach(generation.pokemons) {
                             pokemon in
@@ -69,12 +68,12 @@ struct HomeView: View {
                             }
                         }
                     }
-                    label : {
+                    label: {
                         Text(generation.name).fontDesign(.monospaced)
                     }
                 }
                 Text("TYPES")
-                    .font(.system(size: 20, weight:.bold, design: .monospaced))
+                    .font(.system(size: 20, weight: .bold, design: .monospaced))
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
                     .listRowSeparator(.hidden)
                 ForEach(viewModel.types) { type in

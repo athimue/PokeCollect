@@ -13,7 +13,7 @@ extension Resolver: ResolverRegistering {
         register {
             PokemonAPI() as PokemonAPIProtocol
         }
-        
+
         // REPOSITORY
         register {
             PokemonRepository() as PokemonRepositoryProtocol
@@ -21,8 +21,8 @@ extension Resolver: ResolverRegistering {
         register {
             TypeRepository() as TypeRepositoryProtocol
         }
-        
-        //USE CASE
+
+        // USE CASE
         register {
             GetGenerationPokemonsUseCase() as GetGenerationPokemonsUseCaseProtocol
         }

@@ -8,10 +8,10 @@
 import Foundation
 
 struct PokemonDto: Codable {
-    let id : Int
+    let id: Int
     let pokedexId: Int?
     let name: String
-    let image : String
+    let image: String
     let sprite: String
     let slug: String
     let stats: StatsDto
@@ -22,8 +22,7 @@ struct PokemonDto: Codable {
     let apiEvolutions: [APIEvolutionDto]
     let apiPreEvolution: APIPreEvolutionUnion
     let apiResistancesWithAbilities: [ApiResistanceDto]
-    
-    
+
     enum CodingKeys: String, CodingKey {
         case id
         case pokedexId
@@ -40,7 +39,7 @@ struct PokemonDto: Codable {
         case apiPreEvolution
         case apiResistancesWithAbilities
     }
-    
+
     init(id: Int, pokedexId: Int?, name: String, image: String, sprite: String, slug: String, stats: StatsDto, apiTypes: [ApiTypeDto], apiGeneration: Int, apiResistances: [ApiResistanceDto], resistanceModifyingAbilitiesForApi: ResistanceModifyingAbilitiesForAPIUnion, apiEvolutions: [APIEvolutionDto], apiPreEvolution: APIPreEvolutionUnion, apiResistancesWithAbilities: [ApiResistanceDto]) {
         self.id = id
         self.pokedexId = pokedexId
@@ -57,7 +56,7 @@ struct PokemonDto: Codable {
         self.apiPreEvolution = apiPreEvolution
         self.apiResistancesWithAbilities = apiResistancesWithAbilities
     }
-    
+
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(Int.self, forKey: .id)
@@ -75,5 +74,4 @@ struct PokemonDto: Codable {
         apiPreEvolution = try values.decode(APIPreEvolutionUnion.self, forKey: .apiPreEvolution)
         apiResistancesWithAbilities = try values.decode([ApiResistanceDto].self, forKey: .apiResistancesWithAbilities)
     }
-
 }

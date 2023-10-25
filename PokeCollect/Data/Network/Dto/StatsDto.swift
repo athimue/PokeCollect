@@ -10,7 +10,7 @@ import OptionallyDecodable
 
 class StatsDto: Codable {
     let hp, attack, defense, specialAttack, specialDefense, speed: Int
-    
+
     enum CodingKeys: String, CodingKey {
         case hp = "HP"
         case attack, defense
@@ -18,7 +18,7 @@ class StatsDto: Codable {
         case specialDefense = "special_defense"
         case speed
     }
-    
+
     init(hp: Int, attack: Int, defense: Int, specialAttack: Int, specialDefense: Int, speed: Int) {
         self.hp = hp
         self.attack = attack
