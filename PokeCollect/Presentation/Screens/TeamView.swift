@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TeamView: View {
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack() {
             Text("MY TEAM")
                 .font(.system(size: 30, weight:.bold, design: .monospaced))
                 .foregroundStyle(.red)

@@ -10,7 +10,7 @@ import Resolver
 import Combine
 
 protocol HomeViewModelProtocol: ObservableObject {
-    var generations : [HomeUiModel] { get }
+    var homeUiModel : [HomeUiModel] { get }
     var types : [Type] { get }
     var error: Error? { get }
     func loadData()
@@ -18,104 +18,97 @@ protocol HomeViewModelProtocol: ObservableObject {
 
 class HomeViewModel: HomeViewModelProtocol {
     
-    @Injected private var getFirstGenerationPokemonsUseCase : GetFirstGenerationPokemonsUseCaseProtocol
-    @Injected private var getSecondGenerationPokemonsUseCase : GetSecondGenerationPokemonsUseCaseProtocol
-    @Injected private var getThirdGenerationPokemonsUseCase : GetThirdGenerationPokemonsUseCaseProtocol
-    @Injected private var getFourthGenerationPokemonsUseCase : GetFourthGenerationPokemonsUseCaseProtocol
-    @Injected private var getFifthGenerationPokemonsUseCase : GetFifthGenerationPokemonsUseCaseProtocol
-    @Injected private var getSixthGenerationPokemonsUseCase : GetSixthGenerationPokemonsUseCaseProtocol
-    @Injected private var getSeventhGenerationPokemonsUseCase : GetSeventhGenerationPokemonsUseCaseProtocol
-    @Injected private var getEighthGenerationPokemonsUseCase : GetEighthGenerationPokemonsUseCaseProtocol
+    @Injected private var getGenerationPokemonsUseCase : GetGenerationPokemonsUseCaseProtocol
     @Injected private var getTypesUseCase : GetTypesUseCaseProtocol
     
-    @Published var generations: [HomeUiModel] = []
+    @Published var homeUiModel: [HomeUiModel] = []
     @Published var types: [Type] = []
     @Published var error: Error?
     
     public func loadData() {
-        self.generations = []
-        getFirstGenerationPokemonsUseCase.invoke { result in
+        self.homeUiModel = []
+        getGenerationPokemonsUseCase.invoke(generation : 1) { result in
             switch result {
                 case .success(let pokemons):
                     DispatchQueue.main.async {
-                        self.generations.append(HomeUiModel(name: "Generation 1", pokemons: pokemons))
+                        self.homeUiModel.append(HomeUiModel(name: "Generation 1", pokemons: pokemons))
                     }
                 case .failure(let error):
                     self.error = error
                     print(error)
             }
         }
-        getSecondGenerationPokemonsUseCase.invoke { result in
+        getGenerationPokemonsUseCase.invoke(generation : 2) { result in
             switch result {
                 case .success(let pokemons):
                     DispatchQueue.main.async {
-                        self.generations.append(HomeUiModel(name: "Generation 2", pokemons: pokemons))
+                        self.homeUiModel.append(HomeUiModel(name: "Generation 2", pokemons: pokemons))
                     }
                 case .failure(let error):
                     self.error = error
                     print(error)
             }
         }
-        getThirdGenerationPokemonsUseCase.invoke { result in
+        getGenerationPokemonsUseCase.invoke(generation : 3) { result in
             switch result {
                 case .success(let pokemons):
                     DispatchQueue.main.async {
-                        self.generations.append(HomeUiModel(name: "Generation 3", pokemons: pokemons))
+                        self.homeUiModel.append(HomeUiModel(name: "Generation 3", pokemons: pokemons))
                     }
                 case .failure(let error):
                     self.error = error
                     print(error)
             }
         }
-        getFourthGenerationPokemonsUseCase.invoke { result in
+        getGenerationPokemonsUseCase.invoke(generation : 4) { result in
             switch result {
                 case .success(let pokemons):
                     DispatchQueue.main.async {
-                        self.generations.append(HomeUiModel(name: "Generation 4", pokemons: pokemons))
+                        self.homeUiModel.append(HomeUiModel(name: "Generation 4", pokemons: pokemons))
                     }
                 case .failure(let error):
                     self.error = error
                     print(error)
             }
         }
-        getFifthGenerationPokemonsUseCase.invoke { result in
+        getGenerationPokemonsUseCase.invoke(generation : 5) { result in
             switch result {
                 case .success(let pokemons):
                     DispatchQueue.main.async {
-                        self.generations.append(HomeUiModel(name: "Generation 5", pokemons: pokemons))
+                        self.homeUiModel.append(HomeUiModel(name: "Generation 5", pokemons: pokemons))
                     }
                 case .failure(let error):
                     self.error = error
                     print(error)
             }
         }
-        getSixthGenerationPokemonsUseCase.invoke { result in
+        getGenerationPokemonsUseCase.invoke(generation : 6) { result in
             switch result {
                 case .success(let pokemons):
                     DispatchQueue.main.async {
-                        self.generations.append(HomeUiModel(name: "Generation 6", pokemons: pokemons))
+                        self.homeUiModel.append(HomeUiModel(name: "Generation 6", pokemons: pokemons))
                     }
                 case .failure(let error):
                     self.error = error
                     print(error)
             }
         }
-        getSeventhGenerationPokemonsUseCase.invoke { result in
+        getGenerationPokemonsUseCase.invoke(generation : 7) { result in
             switch result {
                 case .success(let pokemons):
                     DispatchQueue.main.async {
-                        self.generations.append(HomeUiModel(name: "Generation 7", pokemons: pokemons))
+                        self.homeUiModel.append(HomeUiModel(name: "Generation 7", pokemons: pokemons))
                     }
                 case .failure(let error):
                     self.error = error
                     print(error)
             }
         }
-        getEighthGenerationPokemonsUseCase.invoke { result in
+        getGenerationPokemonsUseCase.invoke(generation : 8) { result in
             switch result {
                 case .success(let pokemons):
                     DispatchQueue.main.async {
-                        self.generations.append(HomeUiModel(name: "Generation 8", pokemons: pokemons))
+                        self.homeUiModel.append(HomeUiModel(name: "Generation 8", pokemons: pokemons))
                     }
                 case .failure(let error):
                     self.error = error

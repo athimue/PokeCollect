@@ -25,7 +25,7 @@ struct HomeView: View {
                     .font(.system(size: 20, weight:.bold, design: .monospaced))
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
                     .listRowSeparator(.hidden)
-                ForEach(viewModel.generations.sorted{ $0.name < $1.name}) { generation in
+                ForEach(viewModel.homeUiModel.sorted{ $0.name < $1.name}) { generation in
                     DisclosureGroup {
                         ForEach(generation.pokemons) {
                             pokemon in

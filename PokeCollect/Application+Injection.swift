@@ -24,28 +24,7 @@ extension Resolver: ResolverRegistering {
         
         //USE CASE
         register {
-            GetFirstGenerationPokemonsUseCase() as GetFirstGenerationPokemonsUseCaseProtocol
-        }
-        register {
-            GetSecondGenerationPokemonsUseCase() as GetSecondGenerationPokemonsUseCaseProtocol
-        }
-        register {
-            GetThirdGenerationPokemonsUseCase() as GetThirdGenerationPokemonsUseCaseProtocol
-        }
-        register {
-            GetFourthGenerationPokemonsUseCase() as GetFourthGenerationPokemonsUseCaseProtocol
-        }
-        register {
-            GetFifthGenerationPokemonsUseCase() as GetFifthGenerationPokemonsUseCaseProtocol
-        }
-        register {
-            GetSixthGenerationPokemonsUseCase() as GetSixthGenerationPokemonsUseCaseProtocol
-        }
-        register {
-            GetSeventhGenerationPokemonsUseCase() as GetSeventhGenerationPokemonsUseCaseProtocol
-        }
-        register {
-            GetEighthGenerationPokemonsUseCase() as GetEighthGenerationPokemonsUseCaseProtocol
+            GetGenerationPokemonsUseCase() as GetGenerationPokemonsUseCaseProtocol
         }
         register {
             GetTypesPokemonsUseCase() as GetTypesUseCaseProtocol
