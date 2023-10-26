@@ -14,7 +14,7 @@ protocol GetGenerationPokemonsUseCaseProtocol {
 }
 
 class GetGenerationPokemonsUseCase: GetGenerationPokemonsUseCaseProtocol {
-    @Injected private var pokemonRepository: PokemonRepositoryProtocol
+    @Injected private var pokemonRepository: PokemonRepository
 
     func invoke(generation: Int) -> AnyPublisher<[Pokemon], Error> {
         return pokemonRepository.fetchPokemonGeneration(generation: generation).eraseToAnyPublisher()

@@ -16,10 +16,10 @@ extension Resolver: ResolverRegistering {
 
         // REPOSITORY
         register {
-            PokemonRepository() as PokemonRepositoryProtocol
+            PokemonRepositoryImpl() as PokemonRepository
         }
         register {
-            TypeRepository() as TypeRepositoryProtocol
+            TypeRepositoryImpl() as TypeRepository
         }
 
         // USE CASE

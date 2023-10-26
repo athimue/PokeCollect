@@ -8,12 +8,7 @@ import Combine
 import Foundation
 import Resolver
 
-protocol PokemonRepositoryProtocol {
-    func fetchPokemons(completion: @escaping (Result<[Pokemon], Error>) -> Void)
-    func fetchPokemonGeneration(generation: Int) -> AnyPublisher<[Pokemon], Error>
-}
-
-struct PokemonRepository: PokemonRepositoryProtocol {
+struct PokemonRepositoryImpl: PokemonRepository {
     @Injected private var pokemonApi: PokemonAPIProtocol
 
     func fetchPokemons(completion: @escaping (Result<[Pokemon], Error>) -> Void) {

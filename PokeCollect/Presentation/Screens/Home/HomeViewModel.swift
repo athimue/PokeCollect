@@ -9,24 +9,17 @@ import Combine
 import Foundation
 import Resolver
 
-protocol HomeViewModelProtocol: ObservableObject {
-    var homeUiModel: [HomeUiModel] { get }
-    var types: [Type] { get }
-    var error: Error? { get }
-    func loadData()
-}
-
-class HomeViewModel: HomeViewModelProtocol {
+class HomeViewModel: ObservableObject {
+    
     @Injected private var getGenerationPokemonsUseCase: GetGenerationPokemonsUseCaseProtocol
     @Injected private var getTypesUseCase: GetTypesUseCaseProtocol
     private var cancellables = Set<AnyCancellable>()
     
-    @Published var homeUiModel: [HomeUiModel] = []
-    @Published var types: [Type] = []
+    @Published var homeUiModel: HomeUiModel = HomeUiModel()
     @Published var error: Error?
     
     public func loadData() {
-        homeUiModel = []
+        homeUiModel.generations = []
         fetchPokemonsForGeneration(generation: 1)
         fetchPokemonsForGeneration(generation: 2)
         fetchPokemonsForGeneration(generation: 3)
@@ -35,17 +28,7 @@ class HomeViewModel: HomeViewModelProtocol {
         fetchPokemonsForGeneration(generation: 6)
         fetchPokemonsForGeneration(generation: 7)
         fetchPokemonsForGeneration(generation: 8)
-        getTypesUseCase.invoke { result in
-            switch result {
-                case .success(let types):
-                    DispatchQueue.main.async {
-                        self.types = types
-                    }
-                case .failure(let error):
-                    self.error = error
-                    print(error)
-            }
-        }
+        fetchTypes()
     }
     
     func fetchPokemonsForGeneration(generation: Int) {
@@ -59,10 +42,25 @@ class HomeViewModel: HomeViewModelProtocol {
                 }
             }, receiveValue: { pokemons in
                 DispatchQueue.main.async {
-                    let newHomeUiModel = HomeUiModel(name: "Generation \(generation)", pokemons: pokemons)
-                    self.homeUiModel.append(newHomeUiModel)
+                    self.homeUiModel.generations.append(Generation(name: "Generation \(generation)", pokemons: pokemons))
                 }
             })
             .store(in: &cancellables)
+    }
+    
+    func fetchTypes() {
+        getTypesUseCase.invoke().sink(receiveCompletion: { completion in
+            switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print(error)
+            }
+        }, receiveValue: { types in
+            DispatchQueue.main.async {
+                self.homeUiModel.types = types
+            }
+        })
+        .store(in: &cancellables)
     }
 }
