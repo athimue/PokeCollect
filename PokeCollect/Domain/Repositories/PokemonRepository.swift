@@ -8,7 +8,6 @@
 import Foundation
 import Combine
 
-
 protocol PokemonRepository {
     func fetchPokemons(completion: @escaping (Result<[Pokemon], Error>) -> Void)
     func fetchPokemonGeneration(generation: Int) -> AnyPublisher<[Pokemon], Error>

@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		930228422AEAA5580032626F /* TeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930228412AEAA5580032626F /* TeamViewModel.swift */; };
+		930228442AEAA62B0032626F /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930228432AEAA62B0032626F /* DatabaseManager.swift */; };
+		9302284E2AEAA7960032626F /* CollectionDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9302284D2AEAA7960032626F /* CollectionDao.swift */; };
+		930228502AEAA79F0032626F /* TeamDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9302284F2AEAA79F0032626F /* TeamDao.swift */; };
+		930228522AEAA88E0032626F /* TeamEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930228512AEAA88E0032626F /* TeamEntity.swift */; };
+		930228542AEAB4F30032626F /* CollectionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930228532AEAB4F30032626F /* CollectionEntity.swift */; };
+		9302285F2AEABDE40032626F /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 9302285E2AEABDE40032626F /* GRDB */; };
+		930228612AEABECC0032626F /* TeamRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930228602AEABECC0032626F /* TeamRepository.swift */; };
+		930228632AEABED50032626F /* CollectionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930228622AEABED50032626F /* CollectionRepository.swift */; };
+		930228652AEAC0120032626F /* TeamRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930228642AEAC0120032626F /* TeamRepositoryImpl.swift */; };
+		930228672AEAC0220032626F /* CollectionRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930228662AEAC0220032626F /* CollectionRepositoryImpl.swift */; };
 		93AEE6252AEA56CE0089E00E /* PokemonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AEE6242AEA56CE0089E00E /* PokemonRepository.swift */; };
 		93AEE6272AEA58070089E00E /* TypeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AEE6262AEA58070089E00E /* TypeRepository.swift */; };
 		93AEE6292AEA63C60089E00E /* Generation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AEE6282AEA63C60089E00E /* Generation.swift */; };
@@ -75,6 +86,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		930228412AEAA5580032626F /* TeamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewModel.swift; sourceTree = "<group>"; };
+		930228432AEAA62B0032626F /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		9302284D2AEAA7960032626F /* CollectionDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDao.swift; sourceTree = "<group>"; };
+		9302284F2AEAA79F0032626F /* TeamDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDao.swift; sourceTree = "<group>"; };
+		930228512AEAA88E0032626F /* TeamEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamEntity.swift; sourceTree = "<group>"; };
+		930228532AEAB4F30032626F /* CollectionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionEntity.swift; sourceTree = "<group>"; };
+		930228602AEABECC0032626F /* TeamRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamRepository.swift; sourceTree = "<group>"; };
+		930228622AEABED50032626F /* CollectionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRepository.swift; sourceTree = "<group>"; };
+		930228642AEAC0120032626F /* TeamRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamRepositoryImpl.swift; sourceTree = "<group>"; };
+		930228662AEAC0220032626F /* CollectionRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRepositoryImpl.swift; sourceTree = "<group>"; };
 		93AEE6242AEA56CE0089E00E /* PokemonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonRepository.swift; sourceTree = "<group>"; };
 		93AEE6262AEA58070089E00E /* TypeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeRepository.swift; sourceTree = "<group>"; };
 		93AEE6282AEA63C60089E00E /* Generation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generation.swift; sourceTree = "<group>"; };
@@ -115,6 +136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93DBD85B2AE0245F00CABCBD /* Resolver in Frameworks */,
+				9302285F2AEABDE40032626F /* GRDB in Frameworks */,
 				93DBD85D2AE0245F00CABCBD /* Resolver-Dynamic in Frameworks */,
 				93DBD8602AE0245F00CABCBD /* Resolver-Static in Frameworks */,
 				93BBF9F32ADFFF4900FF903F /* OptionallyDecodable in Frameworks */,
@@ -138,11 +160,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9302283D2AEAA5190032626F /* Team */ = {
+			isa = PBXGroup;
+			children = (
+				93BBF9D12ADFCC1200FF903F /* TeamView.swift */,
+				930228412AEAA5580032626F /* TeamViewModel.swift */,
+			);
+			path = Team;
+			sourceTree = "<group>";
+		};
+		9302283E2AEAA5260032626F /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				9302284C2AEAA7850032626F /* Dao */,
+				930228452AEAA6370032626F /* Entity */,
+				930228432AEAA62B0032626F /* DatabaseManager.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		9302283F2AEAA5300032626F /* Component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		930228402AEAA5450032626F /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				93BBF9CF2ADFCC0B00FF903F /* SearchView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		930228452AEAA6370032626F /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				930228512AEAA88E0032626F /* TeamEntity.swift */,
+				930228532AEAB4F30032626F /* CollectionEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		9302284C2AEAA7850032626F /* Dao */ = {
+			isa = PBXGroup;
+			children = (
+				9302284D2AEAA7960032626F /* CollectionDao.swift */,
+				9302284F2AEAA79F0032626F /* TeamDao.swift */,
+			);
+			path = Dao;
+			sourceTree = "<group>";
+		};
 		93AEE6222AEA529A0089E00E /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
 				93AEE6242AEA56CE0089E00E /* PokemonRepository.swift */,
 				93AEE6262AEA58070089E00E /* TypeRepository.swift */,
+				930228602AEABECC0032626F /* TeamRepository.swift */,
+				930228622AEABED50032626F /* CollectionRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -191,6 +267,7 @@
 		93BBF9C62ADFC6E800FF903F /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				9302283E2AEAA5260032626F /* Database */,
 				93BBF9DE2ADFDF3D00FF903F /* Network */,
 				93BBF9DB2ADFDE5300FF903F /* Repository */,
 			);
@@ -200,29 +277,22 @@
 		93BBF9C72ADFC6EF00FF903F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				9302283F2AEAA5300032626F /* Component */,
 				93BBF99E2ADFC40300FF903F /* ContentView.swift */,
-				93BBF9CA2ADFC75900FF903F /* Components */,
-				93BBF9C92ADFC74E00FF903F /* Screens */,
+				93BBF9C92ADFC74E00FF903F /* Screen */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
 		};
-		93BBF9C92ADFC74E00FF903F /* Screens */ = {
+		93BBF9C92ADFC74E00FF903F /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				930228402AEAA5450032626F /* Search */,
+				9302283D2AEAA5190032626F /* Team */,
 				93BBF9DA2ADFD82300FF903F /* Home */,
-				93BBF9CF2ADFCC0B00FF903F /* SearchView.swift */,
-				93BBF9D12ADFCC1200FF903F /* TeamView.swift */,
 				93B78BF82AE182B8006041BB /* CollectionView.swift */,
 			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
-		93BBF9CA2ADFC75900FF903F /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
+			path = Screen;
 			sourceTree = "<group>";
 		};
 		93BBF9CB2ADFC7BE00FF903F /* Domain */ = {
@@ -269,6 +339,8 @@
 			children = (
 				93BBF9DC2ADFDE7900FF903F /* PokemonRepositoryImpl.swift */,
 				93B78BF42AE17F63006041BB /* TypeRepositoryImpl.swift */,
+				930228642AEAC0120032626F /* TeamRepositoryImpl.swift */,
+				930228662AEAC0220032626F /* CollectionRepositoryImpl.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -334,6 +406,7 @@
 				93DBD85A2AE0245F00CABCBD /* Resolver */,
 				93DBD85C2AE0245F00CABCBD /* Resolver-Dynamic */,
 				93DBD85F2AE0245F00CABCBD /* Resolver-Static */,
+				9302285E2AEABDE40032626F /* GRDB */,
 			);
 			productName = PokeCollect;
 			productReference = 93BBF9992ADFC40300FF903F /* PokeCollect.app */;
@@ -353,6 +426,8 @@
 				93BBF9AB2ADFC40500FF903F /* PBXTargetDependency */,
 			);
 			name = PokeCollectTests;
+			packageProductDependencies = (
+			);
 			productName = PokeCollectTests;
 			productReference = 93BBF9A92ADFC40500FF903F /* PokeCollectTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -371,6 +446,8 @@
 				93BBF9B52ADFC40500FF903F /* PBXTargetDependency */,
 			);
 			name = PokeCollectUITests;
+			packageProductDependencies = (
+			);
 			productName = PokeCollectUITests;
 			productReference = 93BBF9B32ADFC40500FF903F /* PokeCollectUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -410,6 +487,7 @@
 			packageReferences = (
 				93BBF9F12ADFFF4900FF903F /* XCRemoteSwiftPackageReference "OptionallyDecodable" */,
 				93BBF9F62AE01F1500FF903F /* XCRemoteSwiftPackageReference "Resolver" */,
+				9302285D2AEABDE40032626F /* XCRemoteSwiftPackageReference "GRDB.swift" */,
 			);
 			productRefGroup = 93BBF99A2ADFC40300FF903F /* Products */;
 			projectDirPath = "";
@@ -454,23 +532,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				93BBF9CE2ADFCBA700FF903F /* HomeView.swift in Sources */,
+				930228632AEABED50032626F /* CollectionRepository.swift in Sources */,
 				93B78BF92AE182B8006041BB /* CollectionView.swift in Sources */,
+				930228542AEAB4F30032626F /* CollectionEntity.swift in Sources */,
+				930228672AEAC0220032626F /* CollectionRepositoryImpl.swift in Sources */,
+				930228652AEAC0120032626F /* TeamRepositoryImpl.swift in Sources */,
 				93BBF9D02ADFCC0B00FF903F /* SearchView.swift in Sources */,
 				93BBF9EC2ADFE37800FF903F /* ApiResistanceDto.swift in Sources */,
+				930228522AEAA88E0032626F /* TeamEntity.swift in Sources */,
 				93B78BF52AE17F63006041BB /* TypeRepositoryImpl.swift in Sources */,
 				93AEE6272AEA58070089E00E /* TypeRepository.swift in Sources */,
+				930228502AEAA79F0032626F /* TeamDao.swift in Sources */,
 				93BBF9E82ADFE2E000FF903F /* StatsDto.swift in Sources */,
 				93BBF9E22ADFE00F00FF903F /* PokemonApi.swift in Sources */,
+				930228442AEAA62B0032626F /* DatabaseManager.swift in Sources */,
 				93BBF9EA2ADFE34400FF903F /* ApiTypeDto.swift in Sources */,
 				93BBF9EE2ADFE50E00FF903F /* ApiPreEvolutionDto.swift in Sources */,
 				93BBF9D62ADFD50700FF903F /* HomeViewModel.swift in Sources */,
 				93BBF99F2ADFC40300FF903F /* ContentView.swift in Sources */,
 				93B78BF72AE18106006041BB /* GetTypesUseCase.swift in Sources */,
+				930228422AEAA5580032626F /* TeamViewModel.swift in Sources */,
 				93BBF99D2ADFC40300FF903F /* PokeCollectApp.swift in Sources */,
 				93BBF9E42ADFE21E00FF903F /* PokemonDto.swift in Sources */,
 				93BBF9DD2ADFDE7900FF903F /* PokemonRepositoryImpl.swift in Sources */,
+				9302284E2AEAA7960032626F /* CollectionDao.swift in Sources */,
 				93AEE6292AEA63C60089E00E /* Generation.swift in Sources */,
 				93BBF9D22ADFCC1200FF903F /* TeamView.swift in Sources */,
+				930228612AEABECC0032626F /* TeamRepository.swift in Sources */,
 				93BBF9E62ADFE27600FF903F /* ApiEvolutionDto.swift in Sources */,
 				93BBF9F02ADFFE6000FF903F /* ResistanceAbilitiesDto.swift in Sources */,
 				93B78BF32AE17E73006041BB /* TypeDetailDto.swift in Sources */,
@@ -808,6 +896,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9302285D2AEABDE40032626F /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDB.swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		93BBF9F12ADFFF4900FF903F /* XCRemoteSwiftPackageReference "OptionallyDecodable" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/idrougge/OptionallyDecodable";
@@ -820,13 +916,18 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmlongco/Resolver.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.5.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9302285E2AEABDE40032626F /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9302285D2AEABDE40032626F /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
 		93BBF9F22ADFFF4900FF903F /* OptionallyDecodable */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 93BBF9F12ADFFF4900FF903F /* XCRemoteSwiftPackageReference "OptionallyDecodable" */;

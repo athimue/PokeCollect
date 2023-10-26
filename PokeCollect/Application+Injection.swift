@@ -10,8 +10,19 @@ import Resolver
 extension Resolver: ResolverRegistering {
     public static func registerAllServices() {
         Resolver.defaultScope = ResolverScopeUnique()
+        
+        // API & DAO
         register {
             PokemonAPI() as PokemonAPIProtocol
+        }
+        register {
+            DatabaseManager()
+        }
+        register {
+            CollectionDao()
+        }
+        register {
+            TeamDao()
         }
 
         // REPOSITORY
