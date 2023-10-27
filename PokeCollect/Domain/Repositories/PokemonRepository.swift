@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import Resolver
 
 protocol PokemonRepository {
     func fetchPokemons(completion: @escaping (Result<[Pokemon], Error>) -> Void)

@@ -8,24 +8,25 @@
 import Resolver
 import GRDB
 import UIKit
+import Combine
 
 struct CollectionDao {
     
     @Injected var databaseManager: DatabaseManager
     
-    func getCollection() throws -> [CollectionEntity] {
-        return try databaseManager.dbQueue.read { db in
-            try CollectionEntity.fetchAll(db)
-        }
+    func getCollection() -> DatabasePublishers.Value<[CollectionEntity]> {
+        return ValueObservation.tracking {
+            db in try CollectionEntity.fetchAll(db)
+        }.publisher(in: databaseManager.dbQueue)
     }
     
-    func removePokemon(id: Int) throws {
+    func removeItemCollection(id: Int) throws {
         try databaseManager.dbQueue.write { db in
             _ = try CollectionEntity.filter(Column("id") == id).deleteAll(db)
         }
     }
     
-    func addPokemon(collection: CollectionEntity) throws {
+    func addItemCollection(collection: CollectionEntity) throws {
         try databaseManager.dbQueue.write { db in
             var mutableCollection = collection
             try mutableCollection.insert(db)

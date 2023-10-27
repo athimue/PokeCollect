@@ -10,6 +10,7 @@ import Resolver
 import Combine
 
 struct CollectionRepositoryImpl: CollectionRepository {
+    
     @Injected private var collectionDao: CollectionDao
     
     func getCollection() -> AnyPublisher<[Pokemon], Error> {

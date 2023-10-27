@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TeamView: View {
+    
+    @ObservedObject var viewModel: TeamViewModel = TeamViewModel()
+
     var body: some View {
         VStack {
             Text("MY TEAM")
@@ -15,6 +18,14 @@ struct TeamView: View {
                 .foregroundStyle(.red)
                 .padding(10)
                 .frame(maxWidth: .infinity)
+            Text(String(viewModel.teamUiModel.team.count))
+                .font(.system(size: 30, weight: .bold, design: .monospaced))
+                .foregroundStyle(.red)
+                .padding(10)
+                .frame(maxWidth: .infinity)
+            Button("Add pokemon") {
+                viewModel.addPokemon(pokemonId: 1)
+            }
             HStack {
                 VStack {
                     Text("POKEMON 1")
@@ -39,6 +50,8 @@ struct TeamView: View {
                     Text("POKEMON 6")
                 }.frame(maxWidth: .infinity)
             }.frame(maxWidth: .infinity)
+        }.onAppear {
+            viewModel.loadTeam()
         }
     }
 }

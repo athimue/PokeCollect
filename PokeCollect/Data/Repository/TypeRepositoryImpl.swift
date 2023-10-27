@@ -9,6 +9,7 @@ import Foundation
 import Resolver
 
 struct TypeRepositoryImpl: TypeRepository {
+    
     @Injected private var pokemonApi: PokemonAPIProtocol
 
     func fetchTypes() -> AnyPublisher<[Type], Error> {

@@ -9,6 +9,7 @@ import Foundation
 import Resolver
 
 struct PokemonRepositoryImpl: PokemonRepository {
+    
     @Injected private var pokemonApi: PokemonAPIProtocol
 
     func fetchPokemons(completion: @escaping (Result<[Pokemon], Error>) -> Void) {

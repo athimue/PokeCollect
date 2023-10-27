@@ -11,13 +11,17 @@
 		930228442AEAA62B0032626F /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930228432AEAA62B0032626F /* DatabaseManager.swift */; };
 		9302284E2AEAA7960032626F /* CollectionDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9302284D2AEAA7960032626F /* CollectionDao.swift */; };
 		930228502AEAA79F0032626F /* TeamDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9302284F2AEAA79F0032626F /* TeamDao.swift */; };
-		930228522AEAA88E0032626F /* TeamEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930228512AEAA88E0032626F /* TeamEntity.swift */; };
+		930228522AEAA88E0032626F /* PokemonEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930228512AEAA88E0032626F /* PokemonEntity.swift */; };
 		930228542AEAB4F30032626F /* CollectionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930228532AEAB4F30032626F /* CollectionEntity.swift */; };
 		9302285F2AEABDE40032626F /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 9302285E2AEABDE40032626F /* GRDB */; };
 		930228612AEABECC0032626F /* TeamRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930228602AEABECC0032626F /* TeamRepository.swift */; };
 		930228632AEABED50032626F /* CollectionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930228622AEABED50032626F /* CollectionRepository.swift */; };
 		930228652AEAC0120032626F /* TeamRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930228642AEAC0120032626F /* TeamRepositoryImpl.swift */; };
 		930228672AEAC0220032626F /* CollectionRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930228662AEAC0220032626F /* CollectionRepositoryImpl.swift */; };
+		930B7F322AEBAAC00072EA92 /* GetCollectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B7F312AEBAAC00072EA92 /* GetCollectionUseCase.swift */; };
+		930B7F342AEBAC520072EA92 /* GetTeamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B7F332AEBAC520072EA92 /* GetTeamUseCase.swift */; };
+		930B7F362AEBB17A0072EA92 /* TeamUiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B7F352AEBB17A0072EA92 /* TeamUiModel.swift */; };
+		930B7F382AEBBBB80072EA92 /* AddPokemonToTeamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B7F372AEBBBB80072EA92 /* AddPokemonToTeamUseCase.swift */; };
 		93AEE6252AEA56CE0089E00E /* PokemonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AEE6242AEA56CE0089E00E /* PokemonRepository.swift */; };
 		93AEE6272AEA58070089E00E /* TypeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AEE6262AEA58070089E00E /* TypeRepository.swift */; };
 		93AEE6292AEA63C60089E00E /* Generation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AEE6282AEA63C60089E00E /* Generation.swift */; };
@@ -90,12 +94,16 @@
 		930228432AEAA62B0032626F /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		9302284D2AEAA7960032626F /* CollectionDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDao.swift; sourceTree = "<group>"; };
 		9302284F2AEAA79F0032626F /* TeamDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDao.swift; sourceTree = "<group>"; };
-		930228512AEAA88E0032626F /* TeamEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamEntity.swift; sourceTree = "<group>"; };
+		930228512AEAA88E0032626F /* PokemonEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonEntity.swift; sourceTree = "<group>"; };
 		930228532AEAB4F30032626F /* CollectionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionEntity.swift; sourceTree = "<group>"; };
 		930228602AEABECC0032626F /* TeamRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamRepository.swift; sourceTree = "<group>"; };
 		930228622AEABED50032626F /* CollectionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRepository.swift; sourceTree = "<group>"; };
 		930228642AEAC0120032626F /* TeamRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamRepositoryImpl.swift; sourceTree = "<group>"; };
 		930228662AEAC0220032626F /* CollectionRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRepositoryImpl.swift; sourceTree = "<group>"; };
+		930B7F312AEBAAC00072EA92 /* GetCollectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCollectionUseCase.swift; sourceTree = "<group>"; };
+		930B7F332AEBAC520072EA92 /* GetTeamUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTeamUseCase.swift; sourceTree = "<group>"; };
+		930B7F352AEBB17A0072EA92 /* TeamUiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamUiModel.swift; sourceTree = "<group>"; };
+		930B7F372AEBBBB80072EA92 /* AddPokemonToTeamUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPokemonToTeamUseCase.swift; sourceTree = "<group>"; };
 		93AEE6242AEA56CE0089E00E /* PokemonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonRepository.swift; sourceTree = "<group>"; };
 		93AEE6262AEA58070089E00E /* TypeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeRepository.swift; sourceTree = "<group>"; };
 		93AEE6282AEA63C60089E00E /* Generation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generation.swift; sourceTree = "<group>"; };
@@ -165,6 +173,7 @@
 			children = (
 				93BBF9D12ADFCC1200FF903F /* TeamView.swift */,
 				930228412AEAA5580032626F /* TeamViewModel.swift */,
+				930B7F352AEBB17A0072EA92 /* TeamUiModel.swift */,
 			);
 			path = Team;
 			sourceTree = "<group>";
@@ -197,7 +206,7 @@
 		930228452AEAA6370032626F /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				930228512AEAA88E0032626F /* TeamEntity.swift */,
+				930228512AEAA88E0032626F /* PokemonEntity.swift */,
 				930228532AEAB4F30032626F /* CollectionEntity.swift */,
 			);
 			path = Entity;
@@ -320,6 +329,9 @@
 			children = (
 				93BBF9D82ADFD63B00FF903F /* GetGenerationPokemonsUseCase.swift */,
 				93B78BF62AE18106006041BB /* GetTypesUseCase.swift */,
+				930B7F312AEBAAC00072EA92 /* GetCollectionUseCase.swift */,
+				930B7F332AEBAC520072EA92 /* GetTeamUseCase.swift */,
+				930B7F372AEBBBB80072EA92 /* AddPokemonToTeamUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -533,13 +545,15 @@
 			files = (
 				93BBF9CE2ADFCBA700FF903F /* HomeView.swift in Sources */,
 				930228632AEABED50032626F /* CollectionRepository.swift in Sources */,
+				930B7F342AEBAC520072EA92 /* GetTeamUseCase.swift in Sources */,
 				93B78BF92AE182B8006041BB /* CollectionView.swift in Sources */,
 				930228542AEAB4F30032626F /* CollectionEntity.swift in Sources */,
 				930228672AEAC0220032626F /* CollectionRepositoryImpl.swift in Sources */,
 				930228652AEAC0120032626F /* TeamRepositoryImpl.swift in Sources */,
+				930B7F322AEBAAC00072EA92 /* GetCollectionUseCase.swift in Sources */,
 				93BBF9D02ADFCC0B00FF903F /* SearchView.swift in Sources */,
 				93BBF9EC2ADFE37800FF903F /* ApiResistanceDto.swift in Sources */,
-				930228522AEAA88E0032626F /* TeamEntity.swift in Sources */,
+				930228522AEAA88E0032626F /* PokemonEntity.swift in Sources */,
 				93B78BF52AE17F63006041BB /* TypeRepositoryImpl.swift in Sources */,
 				93AEE6272AEA58070089E00E /* TypeRepository.swift in Sources */,
 				930228502AEAA79F0032626F /* TeamDao.swift in Sources */,
@@ -555,6 +569,7 @@
 				93BBF99D2ADFC40300FF903F /* PokeCollectApp.swift in Sources */,
 				93BBF9E42ADFE21E00FF903F /* PokemonDto.swift in Sources */,
 				93BBF9DD2ADFDE7900FF903F /* PokemonRepositoryImpl.swift in Sources */,
+				930B7F362AEBB17A0072EA92 /* TeamUiModel.swift in Sources */,
 				9302284E2AEAA7960032626F /* CollectionDao.swift in Sources */,
 				93AEE6292AEA63C60089E00E /* Generation.swift in Sources */,
 				93BBF9D22ADFCC1200FF903F /* TeamView.swift in Sources */,
@@ -565,6 +580,7 @@
 				93BBF9D92ADFD63B00FF903F /* GetGenerationPokemonsUseCase.swift in Sources */,
 				93BBF9D42ADFD14E00FF903F /* Pokemon.swift in Sources */,
 				93AEE6252AEA56CE0089E00E /* PokemonRepository.swift in Sources */,
+				930B7F382AEBBBB80072EA92 /* AddPokemonToTeamUseCase.swift in Sources */,
 				93B78BE12AE116DB006041BB /* HomeUiModel.swift in Sources */,
 				93BBF9FA2AE022A800FF903F /* Application+Injection.swift in Sources */,
 				93B78BF12AE15D3C006041BB /* Type.swift in Sources */,
