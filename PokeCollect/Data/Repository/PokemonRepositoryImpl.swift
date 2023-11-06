@@ -15,7 +15,6 @@ struct PokemonRepositoryImpl: PokemonRepository {
     func fetchPokemons(completion: @escaping (Result<[Pokemon], Error>) -> Void) {
         pokemonApi.fetchPokemons(limit: 100) {
             result in
-
             switch result {
                 case .success(let pokemonDtos):
                     let pokemons = pokemonDtos.map { pokemonDto in Pokemon(id: pokemonDto.id, name: pokemonDto.name, image: pokemonDto.image, types: pokemonDto.apiTypes.map { $0.toType }) }

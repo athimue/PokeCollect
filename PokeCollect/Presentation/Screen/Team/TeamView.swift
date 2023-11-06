@@ -5,11 +5,12 @@
 //  Created by Clusel Mathieu on 18/10/2023.
 //
 
+import GRDB
+import GRDBQuery
 import SwiftUI
 
 struct TeamView: View {
-    
-    @ObservedObject var viewModel: TeamViewModel = TeamViewModel()
+    @StateObject var viewModel = TeamViewModel()
 
     var body: some View {
         VStack {
@@ -23,7 +24,7 @@ struct TeamView: View {
                 .foregroundStyle(.red)
                 .padding(10)
                 .frame(maxWidth: .infinity)
-            Button("Add pokemon") {
+            Button("Add random pokemon") {
                 viewModel.addPokemon(pokemonId: 1)
             }
             HStack {
@@ -50,8 +51,6 @@ struct TeamView: View {
                     Text("POKEMON 6")
                 }.frame(maxWidth: .infinity)
             }.frame(maxWidth: .infinity)
-        }.onAppear {
-            viewModel.loadTeam()
         }
     }
 }

@@ -14,20 +14,20 @@ struct CollectionDao {
     
     @Injected var databaseManager: DatabaseManager
     
-    func getCollection() -> DatabasePublishers.Value<[CollectionEntity]> {
+    func getCollection() -> AnyPublisher<[CollectionEntity], Error> {
         return ValueObservation.tracking {
             db in try CollectionEntity.fetchAll(db)
-        }.publisher(in: databaseManager.dbQueue)
+        }.publisher(in: databaseManager.reader).eraseToAnyPublisher()
     }
     
     func removeItemCollection(id: Int) throws {
-        try databaseManager.dbQueue.write { db in
+        try databaseManager.writer.write { db in
             _ = try CollectionEntity.filter(Column("id") == id).deleteAll(db)
         }
     }
     
     func addItemCollection(collection: CollectionEntity) throws {
-        try databaseManager.dbQueue.write { db in
+        try databaseManager.writer.write { db in
             var mutableCollection = collection
             try mutableCollection.insert(db)
         }

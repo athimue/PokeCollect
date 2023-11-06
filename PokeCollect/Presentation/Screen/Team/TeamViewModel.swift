@@ -5,38 +5,30 @@
 //  Created by Clusel Mathieu on 26/10/2023.
 //
 
-import Foundation
-import Resolver
 import Combine
+import Dispatch
+import GRDB
+import Resolver
 
 class TeamViewModel: ObservableObject {
-    
     @Injected private var getTeamUseCase: GetTeamUseCaseProtocol
     @Injected private var addPokemonToTeamUseCase: AddPokemonToTeamUseCaseProtocol
-    
-    @Published var teamUiModel: TeamUiModel = TeamUiModel()
-    private var cancellables = Set<AnyCancellable>()
-    
+
+    private var cancellables: Set<AnyCancellable> = []
+
+    @Published var teamUiModel: TeamUiModel = .init()
+
     init() {
-        loadTeam()
-    }
-    
-    func loadTeam() {
         getTeamUseCase.invoke()
-            .print("coucou")
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                    case .failure(let error):
-                        print("Error: \(error)")
-                    case .finished:
-                        print("Finished")
-                }
-            }, receiveValue: { [weak self] teams in
-                self?.teamUiModel.team = teams
-            })
+            .receive(on: DispatchQueue.main)
+            .sink(
+                receiveCompletion: { _ in },
+                receiveValue: { pokemonTeam in
+                    self.teamUiModel.team = pokemonTeam
+                })
             .store(in: &cancellables)
     }
-    
+
     func addPokemon(pokemonId: Int) {
         do {
             try addPokemonToTeamUseCase.invoke(pokemonId: pokemonId)

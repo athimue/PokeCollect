@@ -13,12 +13,13 @@ struct TeamRepositoryImpl: TeamRepository {
     @Injected private var teamDao: TeamDao
 
     func getTeam() -> AnyPublisher<[Pokemon], Error> {
-        teamDao.getTeam().print("ici").map { teamEntityArray in 
-            teamEntityArray.map { pokemon in Pokemon(id: pokemon.id, name: "coucou", image: "", types: []) }}.eraseToAnyPublisher()
+        teamDao.getTeam().map { teamMember in
+            teamMember.map { pokemon in Pokemon(id: pokemon.pokemonId, name: pokemon.name, image: "", types: []) }}.eraseToAnyPublisher()
     }
 
     func addPokemon(pokemonId: Int) throws {
-        try teamDao.addPokemon(teamEntity: TeamEntity(id: pokemonId))
+        var pokemon = TeamMember(pokemonId: pokemonId, name: "Random")
+        try teamDao.addPokemon(pokemonEntity: &pokemon)
     }
 
     func removePokemon(pokemonId: Int) throws {

@@ -16,7 +16,7 @@ extension Resolver: ResolverRegistering {
             PokemonAPI() as PokemonAPIProtocol
         }
         register {
-            DatabaseManager()
+            DatabaseManager.shared as DatabaseManager
         }
         register {
             CollectionDao()

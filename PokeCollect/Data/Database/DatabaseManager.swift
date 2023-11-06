@@ -7,32 +7,22 @@
 
 import Foundation
 import GRDB
+import Combine
 
-class DatabaseManager {
-    var dbQueue: DatabaseQueue!
+struct DatabaseManager {
+    
+    private let privateWriter: DatabaseWriter
 
-    init() {
-        do {
-            try setupDatabase()
-        } catch {
-            print(error)
-        }
+    init(_ writer: DatabaseWriter) throws {
+        self.privateWriter = writer
+        try migrator.migrate(writer)
     }
 
-    func setupDatabase() throws {
-        let fileURL = try FileManager.default
-            .url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-            .appendingPathComponent("db.sqlite")
-        dbQueue = try DatabaseQueue(path: fileURL.path)
-        
-        try dbQueue.write { db in
-            try db.create(table: "Team") { t in
-                t.column("id", .integer).primaryKey()
-            }
-            
-            try db.create(table: "Collection") { t in
-                t.column("id", .integer).primaryKey()
-            }
-        }
+    var reader: DatabaseReader {
+        privateWriter
+    }
+    
+    var writer: DatabaseWriter {
+        privateWriter
     }
 }

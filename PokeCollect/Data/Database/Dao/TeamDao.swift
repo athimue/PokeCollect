@@ -5,31 +5,32 @@
 //  Created by Clusel Mathieu on 26/10/2023.
 //
 
+import Combine
 import GRDB
 import Resolver
-import Combine
+import SwiftUI
 
 struct TeamDao {
-    
     @Injected var databaseManager: DatabaseManager
     
-    func getTeam() -> AnyPublisher<[PokemonEntity], Error> {
+    func getTeam() -> AnyPublisher<[TeamMember], Error> {
         let observation = ValueObservation.tracking { db in
-            try PokemonEntity.fetchAll(db)
+            try TeamMember.fetchAll(db)
         }
-        return observation.publisher(in: databaseManager.dbQueue).eraseToAnyPublisher()
+        
+        let publisher = observation.publisher(in: databaseManager.reader)
+        return publisher.eraseToAnyPublisher()
     }
     
     func removePokemon(id: Int) throws {
-        try databaseManager.dbQueue.write { db in
-            _ = try PokemonEntity.filter(Column("id") == id).deleteAll(db)
+        try databaseManager.writer.write { db in
+            _ = try TeamMember.filter(Column("id") == id).deleteAll(db)
         }
     }
     
-    func addPokemon(pokemonEntity: PokemonEntity) throws {
-        try databaseManager.dbQueue.write { db in
-            var mutableTeamEntity = pokemonEntity
-            try mutableTeamEntity.insert(db)
+    func addPokemon(pokemonEntity: inout TeamMember) throws {
+        try databaseManager.writer.write { db in
+            try pokemonEntity.insert(db)
         }
     }
 }

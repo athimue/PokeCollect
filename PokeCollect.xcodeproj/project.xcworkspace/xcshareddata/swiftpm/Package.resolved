@@ -6,7 +6,16 @@
       "location" : "https://github.com/groue/GRDB.swift.git",
       "state" : {
         "branch" : "master",
-        "revision" : "8fa434272e19977af4bb6e0557cf6fe44f2fb943"
+        "revision" : "f1f8e8438ad815086b48660ddf87c788f9abe966"
+      }
+    },
+    {
+      "identity" : "grdbquery",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/groue/GRDBQuery",
+      "state" : {
+        "revision" : "be64298b4f9d70510226fa7e698aef84f41cec02",
+        "version" : "0.7.0"
       }
     },
     {

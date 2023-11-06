@@ -14,6 +14,6 @@ struct CollectionRepositoryImpl: CollectionRepository {
     @Injected private var collectionDao: CollectionDao
     
     func getCollection() -> AnyPublisher<[Pokemon], Error> {
-        collectionDao.getCollection().map { collectionEntityArray in collectionEntityArray.map { collectionEntity in Pokemon(id: 1, name: "coucou", image: "", types: [])}}.eraseToAnyPublisher()
+        collectionDao.getCollection().map { collectionEntityArray in collectionEntityArray.map { collectionEntity in Pokemon(id: collectionEntity.id, name: "", image: "", types: [])}}.eraseToAnyPublisher()
     }
 }
