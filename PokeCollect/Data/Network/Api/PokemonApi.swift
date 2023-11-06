@@ -4,18 +4,18 @@
 //
 //  Created by Clusel Mathieu on 18/10/2023.
 //
+
 import Combine
 import Foundation
 
-// Define constants for the base URL and the error domain
 let baseURL = "https://pokebuildapi.fr/api/v1"
 let errorDomain = "PokemonAPIErrorDomain"
 
-// Rename the protocol and the function to be more descriptive and follow Swift conventions
 protocol PokemonAPIProtocol {
     func fetchPokemons(limit: Int, completion: @escaping (Result<[PokemonDto], Error>) -> Void)
     func fetchPokemonGeneration(generation: Int) -> AnyPublisher<[PokemonDto], Error>
     func fetchTypes() -> AnyPublisher<[TypeDetailDto], Error>
+    func fetchSearch(query: String) -> AnyPublisher<PokemonDto, Error>
 }
 
 class PokemonAPI: PokemonAPIProtocol {
@@ -65,6 +65,21 @@ class PokemonAPI: PokemonAPIProtocol {
         return URLSession.shared.dataTaskPublisher(for: url)
             .map { $0.data }
             .decode(type: [TypeDetailDto].self, decoder: JSONDecoder())
+            .mapError { error -> Error in
+                error
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    func fetchSearch(query: String) -> AnyPublisher<PokemonDto, Error> {
+        guard let url = URL(string: "\(baseURL)/pokemon/\(query)") else {
+            let error = NSError(domain: errorDomain, code: 1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])
+            return Result<PokemonDto, Error>.Publisher(error).eraseToAnyPublisher()
+        }
+        
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .map { $0.data }
+            .decode(type: PokemonDto.self, decoder: JSONDecoder())
             .mapError { error -> Error in
                 error
             }

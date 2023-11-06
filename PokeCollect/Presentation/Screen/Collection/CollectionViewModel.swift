@@ -11,6 +11,7 @@ import GRDB
 import Resolver
 
 class CollectionViewModel: ObservableObject {
+    
     @Injected private var getCollectionUseCase: GetCollectionUseCaseProtocol
     
     private var cancellables: Set<AnyCancellable> = []
@@ -28,6 +29,5 @@ class CollectionViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    func removePokemonFromCollectiob(pokemonId: Int) {
-    }
+    func removePokemonFromCollection(pokemonId: Int) {}
 }

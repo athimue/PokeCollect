@@ -10,4 +10,6 @@ import Combine
 
 protocol CollectionRepository {
     func getCollection() -> AnyPublisher<[Pokemon], Error>
+    func addPokemon(pokemonId: Int) throws -> Void
+    func removePokemon(pokemonId: Int) throws -> Void
 }

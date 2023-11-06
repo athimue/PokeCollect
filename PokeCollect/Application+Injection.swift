@@ -38,6 +38,9 @@ extension Resolver: ResolverRegistering {
         register {
             TeamRepositoryImpl() as TeamRepository
         }
+        register {
+            SearchRepositoryImpl() as SearchRepository
+        }
 
         // USE CASE
         register {
@@ -53,7 +56,13 @@ extension Resolver: ResolverRegistering {
             GetTeamUseCase() as GetTeamUseCaseProtocol
         }
         register {
+            GetSearchUseCase() as GetSearchUseCaseProtocol
+        }
+        register {
             AddPokemonToTeamUseCase() as AddPokemonToTeamUseCaseProtocol
+        }
+        register {
+            AddPokemonToCollectionUseCase() as AddPokemonToCollectionUseCaseProtocol
         }
     }
 }

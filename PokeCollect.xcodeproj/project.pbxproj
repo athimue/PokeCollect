@@ -27,6 +27,14 @@
 		9376CC742AF8DE7F00BECBAB /* DatabaseManager+Migrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376CC732AF8DE7F00BECBAB /* DatabaseManager+Migrator.swift */; };
 		9376CC772AF8EB0800BECBAB /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376CC762AF8EB0800BECBAB /* CollectionViewModel.swift */; };
 		9376CC7A2AF8EB2800BECBAB /* CollectionUiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376CC792AF8EB2800BECBAB /* CollectionUiModel.swift */; };
+		9376CC7C2AF8F4CD00BECBAB /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376CC7B2AF8F4CD00BECBAB /* SearchViewModel.swift */; };
+		9376CC7E2AF8F51100BECBAB /* SearchUiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376CC7D2AF8F51100BECBAB /* SearchUiModel.swift */; };
+		9376CC802AF8F52900BECBAB /* SearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376CC7F2AF8F52900BECBAB /* SearchResultModel.swift */; };
+		9376CC822AF8F57E00BECBAB /* GetSearchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376CC812AF8F57E00BECBAB /* GetSearchUseCase.swift */; };
+		9376CC842AF8F71D00BECBAB /* SearchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376CC832AF8F71D00BECBAB /* SearchRepository.swift */; };
+		9376CC862AF8F7B000BECBAB /* SearchRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376CC852AF8F7B000BECBAB /* SearchRepositoryImpl.swift */; };
+		9376CC882AF92D2400BECBAB /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376CC872AF92D2400BECBAB /* SearchBar.swift */; };
+		9376CC8A2AF9322600BECBAB /* AddPokemonToCollectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376CC892AF9322600BECBAB /* AddPokemonToCollectionUseCase.swift */; };
 		93AEE6252AEA56CE0089E00E /* PokemonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AEE6242AEA56CE0089E00E /* PokemonRepository.swift */; };
 		93AEE6272AEA58070089E00E /* TypeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AEE6262AEA58070089E00E /* TypeRepository.swift */; };
 		93AEE6292AEA63C60089E00E /* Generation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AEE6282AEA63C60089E00E /* Generation.swift */; };
@@ -113,6 +121,14 @@
 		9376CC732AF8DE7F00BECBAB /* DatabaseManager+Migrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatabaseManager+Migrator.swift"; sourceTree = "<group>"; };
 		9376CC762AF8EB0800BECBAB /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
 		9376CC792AF8EB2800BECBAB /* CollectionUiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionUiModel.swift; sourceTree = "<group>"; };
+		9376CC7B2AF8F4CD00BECBAB /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		9376CC7D2AF8F51100BECBAB /* SearchUiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUiModel.swift; sourceTree = "<group>"; };
+		9376CC7F2AF8F52900BECBAB /* SearchResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultModel.swift; sourceTree = "<group>"; };
+		9376CC812AF8F57E00BECBAB /* GetSearchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSearchUseCase.swift; sourceTree = "<group>"; };
+		9376CC832AF8F71D00BECBAB /* SearchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepository.swift; sourceTree = "<group>"; };
+		9376CC852AF8F7B000BECBAB /* SearchRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryImpl.swift; sourceTree = "<group>"; };
+		9376CC872AF92D2400BECBAB /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		9376CC892AF9322600BECBAB /* AddPokemonToCollectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPokemonToCollectionUseCase.swift; sourceTree = "<group>"; };
 		93AEE6242AEA56CE0089E00E /* PokemonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonRepository.swift; sourceTree = "<group>"; };
 		93AEE6262AEA58070089E00E /* TypeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeRepository.swift; sourceTree = "<group>"; };
 		93AEE6282AEA63C60089E00E /* Generation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generation.swift; sourceTree = "<group>"; };
@@ -203,6 +219,7 @@
 		9302283F2AEAA5300032626F /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				9376CC872AF92D2400BECBAB /* SearchBar.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -211,6 +228,9 @@
 			isa = PBXGroup;
 			children = (
 				93BBF9CF2ADFCC0B00FF903F /* SearchView.swift */,
+				9376CC7B2AF8F4CD00BECBAB /* SearchViewModel.swift */,
+				9376CC7D2AF8F51100BECBAB /* SearchUiModel.swift */,
+				9376CC7F2AF8F52900BECBAB /* SearchResultModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -250,6 +270,7 @@
 				93AEE6262AEA58070089E00E /* TypeRepository.swift */,
 				930228602AEABECC0032626F /* TeamRepository.swift */,
 				930228622AEABED50032626F /* CollectionRepository.swift */,
+				9376CC832AF8F71D00BECBAB /* SearchRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -354,6 +375,8 @@
 				930B7F312AEBAAC00072EA92 /* GetCollectionUseCase.swift */,
 				930B7F332AEBAC520072EA92 /* GetTeamUseCase.swift */,
 				930B7F372AEBBBB80072EA92 /* AddPokemonToTeamUseCase.swift */,
+				9376CC812AF8F57E00BECBAB /* GetSearchUseCase.swift */,
+				9376CC892AF9322600BECBAB /* AddPokemonToCollectionUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -375,6 +398,7 @@
 				93B78BF42AE17F63006041BB /* TypeRepositoryImpl.swift */,
 				930228642AEAC0120032626F /* TeamRepositoryImpl.swift */,
 				930228662AEAC0220032626F /* CollectionRepositoryImpl.swift */,
+				9376CC852AF8F7B000BECBAB /* SearchRepositoryImpl.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -575,13 +599,19 @@
 				930228542AEAB4F30032626F /* CollectionMember.swift in Sources */,
 				930228672AEAC0220032626F /* CollectionRepositoryImpl.swift in Sources */,
 				930228652AEAC0120032626F /* TeamRepositoryImpl.swift in Sources */,
+				9376CC862AF8F7B000BECBAB /* SearchRepositoryImpl.swift in Sources */,
+				9376CC802AF8F52900BECBAB /* SearchResultModel.swift in Sources */,
+				9376CC8A2AF9322600BECBAB /* AddPokemonToCollectionUseCase.swift in Sources */,
 				930B7F322AEBAAC00072EA92 /* GetCollectionUseCase.swift in Sources */,
 				93BBF9D02ADFCC0B00FF903F /* SearchView.swift in Sources */,
 				93BBF9EC2ADFE37800FF903F /* ApiResistanceDto.swift in Sources */,
+				9376CC882AF92D2400BECBAB /* SearchBar.swift in Sources */,
 				930228522AEAA88E0032626F /* TeamMember.swift in Sources */,
 				93B78BF52AE17F63006041BB /* TypeRepositoryImpl.swift in Sources */,
 				9376CC722AF8DE2900BECBAB /* DatabaseManager+Persistent.swift in Sources */,
+				9376CC7C2AF8F4CD00BECBAB /* SearchViewModel.swift in Sources */,
 				93AEE6272AEA58070089E00E /* TypeRepository.swift in Sources */,
+				9376CC7E2AF8F51100BECBAB /* SearchUiModel.swift in Sources */,
 				930228502AEAA79F0032626F /* TeamDao.swift in Sources */,
 				93BBF9E82ADFE2E000FF903F /* StatsDto.swift in Sources */,
 				93BBF9E22ADFE00F00FF903F /* PokemonApi.swift in Sources */,
@@ -591,6 +621,7 @@
 				93BBF9D62ADFD50700FF903F /* HomeViewModel.swift in Sources */,
 				93BBF99F2ADFC40300FF903F /* ContentView.swift in Sources */,
 				93B78BF72AE18106006041BB /* GetTypesUseCase.swift in Sources */,
+				9376CC842AF8F71D00BECBAB /* SearchRepository.swift in Sources */,
 				930228422AEAA5580032626F /* TeamViewModel.swift in Sources */,
 				93BBF99D2ADFC40300FF903F /* PokeCollectApp.swift in Sources */,
 				93BBF9E42ADFE21E00FF903F /* PokemonDto.swift in Sources */,
@@ -605,6 +636,7 @@
 				93BBF9F02ADFFE6000FF903F /* ResistanceAbilitiesDto.swift in Sources */,
 				93B78BF32AE17E73006041BB /* TypeDetailDto.swift in Sources */,
 				93BBF9D92ADFD63B00FF903F /* GetGenerationPokemonsUseCase.swift in Sources */,
+				9376CC822AF8F57E00BECBAB /* GetSearchUseCase.swift in Sources */,
 				93BBF9D42ADFD14E00FF903F /* Pokemon.swift in Sources */,
 				93AEE6252AEA56CE0089E00E /* PokemonRepository.swift in Sources */,
 				930B7F382AEBBBB80072EA92 /* AddPokemonToTeamUseCase.swift in Sources */,
