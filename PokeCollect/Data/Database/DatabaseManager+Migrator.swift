@@ -12,12 +12,11 @@ extension DatabaseManager {
     var migrator: DatabaseMigrator {
         var migrator = DatabaseMigrator()
         
-        #if DEBUG
         migrator.eraseDatabaseOnSchemaChange = true
-        #endif
         
         migrator.registerMigration("v1") { db in
             try createTeam(db)
+            try createCollection(db)
         }
         
         return migrator
@@ -28,6 +27,12 @@ extension DatabaseManager {
             t.autoIncrementedPrimaryKey("id")
             t.column("pokemonId", .integer).notNull()
             t.column("name", .text).notNull()
+        }
+    }
+    
+    private func createCollection(_ db: GRDB.Database) throws {
+        try db.create(table: "collection") { t in
+            t.column("pokemonId", .integer).primaryKey().notNull()
         }
     }
 }

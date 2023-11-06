@@ -7,29 +7,28 @@
 
 import Resolver
 import GRDB
-import UIKit
 import Combine
 
 struct CollectionDao {
     
     @Injected var databaseManager: DatabaseManager
     
-    func getCollection() -> AnyPublisher<[CollectionEntity], Error> {
+    func getCollection() -> AnyPublisher<[CollectionMember], Error> {
         return ValueObservation.tracking {
-            db in try CollectionEntity.fetchAll(db)
+            db in try CollectionMember.fetchAll(db)
         }.publisher(in: databaseManager.reader).eraseToAnyPublisher()
     }
     
     func removeItemCollection(id: Int) throws {
         try databaseManager.writer.write { db in
-            _ = try CollectionEntity.filter(Column("id") == id).deleteAll(db)
+            _ = try CollectionMember.filter(Column("id") == id).deleteAll(db)
         }
     }
     
-    func addItemCollection(collection: CollectionEntity) throws {
+    func addCollectionMember(collectionMember: CollectionMember) throws {
         try databaseManager.writer.write { db in
-            var mutableCollection = collection
-            try mutableCollection.insert(db)
+            var mutableCollectionMember = collectionMember
+            try mutableCollectionMember.insert(db)
         }
     }
 }

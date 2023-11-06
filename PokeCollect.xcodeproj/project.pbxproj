@@ -12,7 +12,7 @@
 		9302284E2AEAA7960032626F /* CollectionDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9302284D2AEAA7960032626F /* CollectionDao.swift */; };
 		930228502AEAA79F0032626F /* TeamDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9302284F2AEAA79F0032626F /* TeamDao.swift */; };
 		930228522AEAA88E0032626F /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930228512AEAA88E0032626F /* TeamMember.swift */; };
-		930228542AEAB4F30032626F /* CollectionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930228532AEAB4F30032626F /* CollectionEntity.swift */; };
+		930228542AEAB4F30032626F /* CollectionMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930228532AEAB4F30032626F /* CollectionMember.swift */; };
 		930228612AEABECC0032626F /* TeamRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930228602AEABECC0032626F /* TeamRepository.swift */; };
 		930228632AEABED50032626F /* CollectionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930228622AEABED50032626F /* CollectionRepository.swift */; };
 		930228652AEAC0120032626F /* TeamRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930228642AEAC0120032626F /* TeamRepositoryImpl.swift */; };
@@ -25,6 +25,8 @@
 		9376CC702AF1AAE900BECBAB /* GRDBQuery in Frameworks */ = {isa = PBXBuildFile; productRef = 9376CC6F2AF1AAE900BECBAB /* GRDBQuery */; };
 		9376CC722AF8DE2900BECBAB /* DatabaseManager+Persistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376CC712AF8DE2900BECBAB /* DatabaseManager+Persistent.swift */; };
 		9376CC742AF8DE7F00BECBAB /* DatabaseManager+Migrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376CC732AF8DE7F00BECBAB /* DatabaseManager+Migrator.swift */; };
+		9376CC772AF8EB0800BECBAB /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376CC762AF8EB0800BECBAB /* CollectionViewModel.swift */; };
+		9376CC7A2AF8EB2800BECBAB /* CollectionUiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376CC792AF8EB2800BECBAB /* CollectionUiModel.swift */; };
 		93AEE6252AEA56CE0089E00E /* PokemonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AEE6242AEA56CE0089E00E /* PokemonRepository.swift */; };
 		93AEE6272AEA58070089E00E /* TypeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AEE6262AEA58070089E00E /* TypeRepository.swift */; };
 		93AEE6292AEA63C60089E00E /* Generation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AEE6282AEA63C60089E00E /* Generation.swift */; };
@@ -98,7 +100,7 @@
 		9302284D2AEAA7960032626F /* CollectionDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDao.swift; sourceTree = "<group>"; };
 		9302284F2AEAA79F0032626F /* TeamDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDao.swift; sourceTree = "<group>"; };
 		930228512AEAA88E0032626F /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
-		930228532AEAB4F30032626F /* CollectionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionEntity.swift; sourceTree = "<group>"; };
+		930228532AEAB4F30032626F /* CollectionMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionMember.swift; sourceTree = "<group>"; };
 		930228602AEABECC0032626F /* TeamRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamRepository.swift; sourceTree = "<group>"; };
 		930228622AEABED50032626F /* CollectionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRepository.swift; sourceTree = "<group>"; };
 		930228642AEAC0120032626F /* TeamRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -109,6 +111,8 @@
 		930B7F372AEBBBB80072EA92 /* AddPokemonToTeamUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPokemonToTeamUseCase.swift; sourceTree = "<group>"; };
 		9376CC712AF8DE2900BECBAB /* DatabaseManager+Persistent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatabaseManager+Persistent.swift"; sourceTree = "<group>"; };
 		9376CC732AF8DE7F00BECBAB /* DatabaseManager+Migrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatabaseManager+Migrator.swift"; sourceTree = "<group>"; };
+		9376CC762AF8EB0800BECBAB /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
+		9376CC792AF8EB2800BECBAB /* CollectionUiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionUiModel.swift; sourceTree = "<group>"; };
 		93AEE6242AEA56CE0089E00E /* PokemonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonRepository.swift; sourceTree = "<group>"; };
 		93AEE6262AEA58070089E00E /* TypeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeRepository.swift; sourceTree = "<group>"; };
 		93AEE6282AEA63C60089E00E /* Generation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generation.swift; sourceTree = "<group>"; };
@@ -215,7 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				930228512AEAA88E0032626F /* TeamMember.swift */,
-				930228532AEAB4F30032626F /* CollectionEntity.swift */,
+				930228532AEAB4F30032626F /* CollectionMember.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -227,6 +231,16 @@
 				9302284F2AEAA79F0032626F /* TeamDao.swift */,
 			);
 			path = Dao;
+			sourceTree = "<group>";
+		};
+		9376CC752AF8EAEB00BECBAB /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				93B78BF82AE182B8006041BB /* CollectionView.swift */,
+				9376CC762AF8EB0800BECBAB /* CollectionViewModel.swift */,
+				9376CC792AF8EB2800BECBAB /* CollectionUiModel.swift */,
+			);
+			path = Collection;
 			sourceTree = "<group>";
 		};
 		93AEE6222AEA529A0089E00E /* Repositories */ = {
@@ -304,10 +318,10 @@
 		93BBF9C92ADFC74E00FF903F /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				9376CC752AF8EAEB00BECBAB /* Collection */,
 				930228402AEAA5450032626F /* Search */,
 				9302283D2AEAA5190032626F /* Team */,
 				93BBF9DA2ADFD82300FF903F /* Home */,
-				93B78BF82AE182B8006041BB /* CollectionView.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -556,8 +570,9 @@
 				93BBF9CE2ADFCBA700FF903F /* HomeView.swift in Sources */,
 				930228632AEABED50032626F /* CollectionRepository.swift in Sources */,
 				930B7F342AEBAC520072EA92 /* GetTeamUseCase.swift in Sources */,
+				9376CC7A2AF8EB2800BECBAB /* CollectionUiModel.swift in Sources */,
 				93B78BF92AE182B8006041BB /* CollectionView.swift in Sources */,
-				930228542AEAB4F30032626F /* CollectionEntity.swift in Sources */,
+				930228542AEAB4F30032626F /* CollectionMember.swift in Sources */,
 				930228672AEAC0220032626F /* CollectionRepositoryImpl.swift in Sources */,
 				930228652AEAC0120032626F /* TeamRepositoryImpl.swift in Sources */,
 				930B7F322AEBAAC00072EA92 /* GetCollectionUseCase.swift in Sources */,
@@ -593,6 +608,7 @@
 				93BBF9D42ADFD14E00FF903F /* Pokemon.swift in Sources */,
 				93AEE6252AEA56CE0089E00E /* PokemonRepository.swift in Sources */,
 				930B7F382AEBBBB80072EA92 /* AddPokemonToTeamUseCase.swift in Sources */,
+				9376CC772AF8EB0800BECBAB /* CollectionViewModel.swift in Sources */,
 				93B78BE12AE116DB006041BB /* HomeUiModel.swift in Sources */,
 				93BBF9FA2AE022A800FF903F /* Application+Injection.swift in Sources */,
 				93B78BF12AE15D3C006041BB /* Type.swift in Sources */,
