@@ -24,7 +24,7 @@ extension DatabaseManager {
     
     private func createTeam(_ db: GRDB.Database) throws {
         try db.create(table: "team") { t in
-            t.column("id", .integer).primaryKey().notNull()
+            t.column("pokemonId", .integer).primaryKey().notNull()
         }
     }
     

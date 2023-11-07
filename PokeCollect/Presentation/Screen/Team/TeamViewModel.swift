@@ -31,15 +31,10 @@ class TeamViewModel: ObservableObject {
     }
 
     func addPokemon(pokemonId: Int) {
-        do {
-            let isAdded: Bool = try addPokemonToTeamUseCase.invoke(pokemonId: pokemonId)
-            if isAdded {
-                print("retourne false")
-            } else {
-                print("retourne true")
-            }
-        } catch {
-            print(error)
+        if addPokemonToTeamUseCase.invoke(pokemonId: pokemonId) {
+            print("retourne false")
+        } else {
+            print("retourne true")
         }
     }
 }
