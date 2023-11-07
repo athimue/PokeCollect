@@ -10,8 +10,7 @@ import Dispatch
 import GRDB
 import Resolver
 
-class SearchViewModel : ObservableObject {
-    
+class SearchViewModel: ObservableObject {
     @Injected private var getSearchUseCase: GetSearchUseCaseProtocol
     @Injected private var addPokemonToTeam: AddPokemonToTeamUseCaseProtocol
     @Injected private var addPokemonToCollection: AddPokemonToCollectionUseCaseProtocol
@@ -20,29 +19,30 @@ class SearchViewModel : ObservableObject {
     
     @Published var uiModel = SearchUiModel()
     
-    func search(query: String) -> Void {
+    func search(query: String) {
         getSearchUseCase.invoke(query: query)
             .receive(on: DispatchQueue.main)
             .sink(
                 receiveCompletion: { _ in },
                 receiveValue: { result in
-                    self.uiModel.result = result.map { result in SearchResultModel(id: result.id, name: result.name, image: result.image, types: result.types)}
+                    self.uiModel.result = result.map { result in SearchResultModel(id: result.id, name: result.name, image: result.image, types: result.types) }
                 })
             .store(in: &cancellables)
     }
     
     func addPokemonToCollection(pokemonId: Int) {
-        do  { try addPokemonToCollection.invoke(pokemonId: pokemonId)}
+        do { try addPokemonToCollection.invoke(pokemonId: pokemonId) }
         catch {
             print(error)
         }
     }
     
     func addPokemonToTeam(pokemonId: Int) {
-        do {
-            try addPokemonToTeam.invoke(pokemonId: pokemonId)
-        } catch {
-            print(error)
+        let isAdded = addPokemonToTeam.invoke(pokemonId: pokemonId)
+        if isAdded {
+            print("ajouté")
+        } else {
+            print("non ajouté")
         }
     }
 }

@@ -12,7 +12,7 @@ extension DatabaseManager {
     var migrator: DatabaseMigrator {
         var migrator = DatabaseMigrator()
         
-        migrator.eraseDatabaseOnSchemaChange = true
+        //migrator.eraseDatabaseOnSchemaChange = true
         
         migrator.registerMigration("v1") { db in
             try createTeam(db)
@@ -24,9 +24,7 @@ extension DatabaseManager {
     
     private func createTeam(_ db: GRDB.Database) throws {
         try db.create(table: "team") { t in
-            t.autoIncrementedPrimaryKey("id")
-            t.column("pokemonId", .integer).notNull()
-            t.column("name", .text).notNull()
+            t.column("id", .integer).primaryKey().notNull()
         }
     }
     

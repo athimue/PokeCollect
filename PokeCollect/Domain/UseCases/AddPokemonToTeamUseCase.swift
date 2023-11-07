@@ -9,13 +9,13 @@ import Foundation
 import Resolver
 
 protocol AddPokemonToTeamUseCaseProtocol {
-    func invoke(pokemonId: Int) throws -> Void
+    func invoke(pokemonId: Int) -> Bool
 }
 
 class AddPokemonToTeamUseCase: AddPokemonToTeamUseCaseProtocol {
     @Injected private var teamRepository: TeamRepository
 
-    func invoke(pokemonId: Int) throws {
-        try teamRepository.addPokemon(pokemonId: pokemonId)
+    func invoke(pokemonId: Int) -> Bool {
+        return teamRepository.addPokemon(pokemonId: pokemonId)
     }
 }

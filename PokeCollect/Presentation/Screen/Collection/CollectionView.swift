@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CollectionView: View {
+struct CollectionView: View{
     @Binding var tabSelection: Int
     @StateObject var viewModel = CollectionViewModel()
 

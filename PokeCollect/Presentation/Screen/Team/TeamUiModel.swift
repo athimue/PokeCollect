@@ -9,5 +9,6 @@ import Foundation
 
 struct TeamUiModel: Identifiable {
     let id = UUID()
+    var isLoading: Bool = true
     var team : [Pokemon] = []
 }

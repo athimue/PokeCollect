@@ -1,5 +1,5 @@
 //
-//  PokemonEntity.swift
+//  TeamMember.swift
 //  PokeCollect
 //
 //  Created by Clusel Mathieu on 26/10/2023.
@@ -8,12 +8,8 @@
 import Foundation
 import GRDB
 
-struct TeamMember: Identifiable, Codable, PersistableRecord, EncodableRecord, FetchableRecord {
-    var id: Int64?
+struct TeamMember: Codable, PersistableRecord, EncodableRecord, FetchableRecord, TableRecord {
     var pokemonId: Int
-    var name: String
-}
-
-extension TeamMember : TableRecord {
+    
     static var databaseTableName: String { "team" }
 }

@@ -3,4 +3,54 @@
    uuid = "2B202C10-1C7B-4199-8068-68DB4CB6C4B5"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AF1C8CEA-5B37-4807-BF32-AF7BD29226A0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PokeCollect/Presentation/Screen/Team/TeamViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "init()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AF1C8CEA-5B37-4807-BF32-AF7BD29226A0 - 2f627b0a45b09eac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PokeCollect.TeamViewModel.__allocating_init() -&gt; PokeCollect.TeamViewModel"
+                  moduleName = "PokeCollect"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/athimue/Documents/PokeCollect/PokeCollect/Presentation/Screen/Team/TeamViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "AF1C8CEA-5B37-4807-BF32-AF7BD29226A0 - 7be2e69164706a53"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PokeCollect.TeamViewModel.init() -&gt; PokeCollect.TeamViewModel"
+                  moduleName = "PokeCollect"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/athimue/Documents/PokeCollect/PokeCollect/Presentation/Screen/Team/TeamViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "324">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

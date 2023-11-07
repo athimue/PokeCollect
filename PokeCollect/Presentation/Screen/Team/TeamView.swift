@@ -18,38 +18,39 @@ struct TeamView: View {
                 .padding(10)
                 .listRowSeparator(.hidden)
                 .frame(maxWidth: .infinity)
-            Text(String(viewModel.teamUiModel.team.count))
-                .font(.system(size: 30, weight: .bold, design: .monospaced))
-                .foregroundStyle(.red)
-                .padding(10)
-                .frame(maxWidth: .infinity)
-            Button("Add random pokemon") {
-                viewModel.addPokemon(pokemonId: 1)
-            }
-            HStack {
-                VStack {
-                    Text("POKEMON 1")
-                }.frame(maxWidth: .infinity)
-                VStack {
-                    Text("POKEMON 2")
-                }.frame(maxWidth: .infinity)
-            }.frame(maxWidth: .infinity)
-            HStack {
-                VStack {
-                    Text("POKEMON 3")
-                }.frame(maxWidth: .infinity)
-                VStack {
-                    Text("POKEMON 4")
-                }.frame(maxWidth: .infinity)
-            }.frame(maxWidth: .infinity)
-            HStack {
-                VStack {
-                    Text("POKEMON 5")
-                }.frame(maxWidth: .infinity)
-                VStack {
-                    Text("POKEMON 6")
-                }.frame(maxWidth: .infinity)
-            }.frame(maxWidth: .infinity)
+            VStack {
+                if viewModel.uiModel.isLoading {
+                    ProgressView()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                        .progressViewStyle(CircularProgressViewStyle())
+                } else {
+                    HStack {
+                        VStack {
+                            Text(viewModel.uiModel.team[0].name)
+                        }.frame(maxWidth: .infinity)
+                        VStack {
+                            Text(viewModel.uiModel.team[1].name)
+                        }.frame(maxWidth: .infinity)
+                    }.frame(maxWidth: .infinity, maxHeight: 100)
+                    HStack {
+                        VStack {
+                            Text(viewModel.uiModel.team[2].name)
+                        }.frame(maxWidth: .infinity)
+                        VStack {
+                            Text(viewModel.uiModel.team[3].name)
+                        }.frame(maxWidth: .infinity)
+                    }.frame(maxWidth: .infinity, maxHeight: 100)
+                    HStack {
+                        VStack {
+                            Text(viewModel.uiModel.team[4].name)
+                        }.frame(maxWidth: .infinity)
+                        VStack {
+                            Text(viewModel.uiModel.team[5].name)
+                        }.frame(maxWidth: .infinity)
+                    }.frame(maxWidth: .infinity, maxHeight: 100)
+                }
+            }.frame(maxHeight: .infinity)
+                
         }
     }
 }

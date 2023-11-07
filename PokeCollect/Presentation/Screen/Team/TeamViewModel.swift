@@ -16,7 +16,7 @@ class TeamViewModel: ObservableObject {
 
     private var cancellables: Set<AnyCancellable> = []
 
-    @Published var teamUiModel: TeamUiModel = .init()
+    @Published var uiModel: TeamUiModel = .init()
 
     init() {
         getTeamUseCase.invoke()
@@ -24,14 +24,20 @@ class TeamViewModel: ObservableObject {
             .sink(
                 receiveCompletion: { _ in },
                 receiveValue: { pokemonTeam in
-                    self.teamUiModel.team = pokemonTeam
+                    self.uiModel.isLoading = false
+                    self.uiModel.team = pokemonTeam
                 })
             .store(in: &cancellables)
     }
 
     func addPokemon(pokemonId: Int) {
         do {
-            try addPokemonToTeamUseCase.invoke(pokemonId: pokemonId)
+            let isAdded: Bool = try addPokemonToTeamUseCase.invoke(pokemonId: pokemonId)
+            if isAdded {
+                print("retourne false")
+            } else {
+                print("retourne true")
+            }
         } catch {
             print(error)
         }

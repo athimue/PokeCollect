@@ -10,6 +10,6 @@ import Foundation
 
 protocol TeamRepository {
     func getTeam() -> AnyPublisher<[Pokemon], Error>
-    func addPokemon(pokemonId: Int) throws -> Void
+    func addPokemon(pokemonId: Int) -> Bool
     func removePokemon(pokemonId: Int) throws -> Void
 }

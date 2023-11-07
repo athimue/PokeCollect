@@ -27,7 +27,7 @@ struct CollectionDao {
     
     func addPokemon(pokemonEntity: CollectionMember) throws {
         try databaseManager.writer.write { db in
-            try pokemonEntity.insert(db)
+            try pokemonEntity.save(db)
         }
     }
 }

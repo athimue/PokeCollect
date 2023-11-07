@@ -82,7 +82,7 @@ struct SearchView: View {
                                     .background(Color.green)
                                     .cornerRadius(10)
                                 }
-                            }
+                            }.buttonStyle(BorderlessButtonStyle())
                         }
                     }
                 }.listStyle(.plain)

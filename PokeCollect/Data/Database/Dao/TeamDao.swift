@@ -15,7 +15,7 @@ struct TeamDao {
     
     func getTeam() -> AnyPublisher<[TeamMember], Error> {
         let observation = ValueObservation.tracking { db in
-            try TeamMember.fetchAll(db)
+            try TeamMember.limit(6).fetchAll(db)
         }
         
         let publisher = observation.publisher(in: databaseManager.reader)
@@ -24,13 +24,26 @@ struct TeamDao {
     
     func removePokemon(id: Int) throws {
         try databaseManager.writer.write { db in
-            _ = try TeamMember.filter(Column("id") == id).deleteAll(db)
+            _ = try TeamMember.filter(Column("pokemonId") == id).deleteAll(db)
         }
     }
     
-    func addPokemon(teamMember: TeamMember) throws {
-        try databaseManager.writer.write { db in
-            try teamMember.insert(db)
+    func addPokemon(teamMember: TeamMember) -> Bool {
+        do  {
+            let team: [TeamMember] = try databaseManager.reader.read { db in
+                try TeamMember.fetchAll(db)
+            }
+            if team.count < 6 {
+                try databaseManager.writer.write { db in
+                    try teamMember.save(db)
+                }
+                return true
+            }
+            return false
+        }
+        catch {
+            print("error")
+            return false
         }
     }
 }
