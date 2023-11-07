@@ -71,7 +71,7 @@ struct CollectionView: View {
                         }.listStyle(.plain)
                     }
                     Button {
-                        tabSelection = 1
+                        tabSelection = Screen.SEARCH.rawValue
                     } label: {
                         Image(systemName: "plus")
                             .font(.title.weight(.semibold))

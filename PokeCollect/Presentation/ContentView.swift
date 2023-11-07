@@ -7,30 +7,37 @@
 
 import SwiftUI
 
+enum Screen :  Int {
+    case HOME = 0
+    case SEARCH = 1
+    case TEAM = 2
+    case COLLECTION = 3
+}
+
 struct ContentView: View {
-    @State private var tabSelection = 0
+    @State private var tabSelection = Screen.HOME.rawValue
     var body: some View {
         TabView(selection: $tabSelection) {
             HomeView()
                 .tabItem {
                     Image(systemName: "house.fill")
                     Text("Home")
-                }.tag(0)
+                }.tag(Screen.HOME.rawValue)
             SearchView()
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                     Text("Search")
-                }.tag(1)
+                }.tag(Screen.SEARCH.rawValue)
             TeamView()
                 .tabItem {
                     Image(systemName: "archivebox.fill")
                     Text("Team")
-                }.tag(2)
+                }.tag(Screen.TEAM.rawValue)
             CollectionView(tabSelection: $tabSelection)
                 .tabItem {
                     Image(systemName: "list.star")
                     Text("Collection")
-                }.tag(3)
+                }.tag(Screen.COLLECTION.rawValue)
         }
     }
 }
