@@ -15,8 +15,8 @@ protocol GetCollectionUseCaseProtocol {
 
 class GetCollectionUseCase: GetCollectionUseCaseProtocol {
     @Injected private var collectionRepository: CollectionRepository
-    
+
     func invoke() -> AnyPublisher<[Pokemon], Error> {
-        return collectionRepository.getCollection().eraseToAnyPublisher()
+        return collectionRepository.getCollection()
     }
 }

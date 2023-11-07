@@ -8,7 +8,7 @@
 import Foundation
 import GRDB
 
-struct CollectionMember: Codable, MutablePersistableRecord, EncodableRecord, FetchableRecord {
+struct CollectionMember: Codable, PersistableRecord, EncodableRecord, FetchableRecord {
     var pokemonId: Int
 }
 

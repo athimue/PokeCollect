@@ -19,13 +19,13 @@ struct CollectionDao {
         }.publisher(in: databaseManager.reader).eraseToAnyPublisher()
     }
     
-    func removePokemon(id: Int) throws {
+    func removePokemon(pokemonId: Int) throws {
         try databaseManager.writer.write { db in
-            _ = try CollectionMember.filter(Column("id") == id).deleteAll(db)
+            _ = try CollectionMember.filter(Column("pokemonId") == pokemonId).deleteAll(db)
         }
     }
     
-    func addPokemon(pokemonEntity: inout CollectionMember) throws {
+    func addPokemon(pokemonEntity: CollectionMember) throws {
         try databaseManager.writer.write { db in
             try pokemonEntity.insert(db)
         }

@@ -18,8 +18,7 @@ struct TeamRepositoryImpl: TeamRepository {
     }
 
     func addPokemon(pokemonId: Int) throws {
-        var pokemon = TeamMember(pokemonId: pokemonId, name: "Random")
-        try teamDao.addPokemon(pokemonEntity: &pokemon)
+        try teamDao.addPokemon(teamMember: TeamMember(pokemonId: pokemonId, name: "Random"))
     }
 
     func removePokemon(pokemonId: Int) throws {

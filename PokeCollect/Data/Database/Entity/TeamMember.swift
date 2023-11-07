@@ -8,7 +8,7 @@
 import Foundation
 import GRDB
 
-struct TeamMember: Identifiable, Codable, MutablePersistableRecord, EncodableRecord, FetchableRecord {
+struct TeamMember: Identifiable, Codable, PersistableRecord, EncodableRecord, FetchableRecord {
     var id: Int64?
     var pokemonId: Int
     var name: String

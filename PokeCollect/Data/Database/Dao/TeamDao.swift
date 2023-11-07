@@ -28,9 +28,9 @@ struct TeamDao {
         }
     }
     
-    func addPokemon(pokemonEntity: inout TeamMember) throws {
+    func addPokemon(teamMember: TeamMember) throws {
         try databaseManager.writer.write { db in
-            try pokemonEntity.insert(db)
+            try teamMember.insert(db)
         }
     }
 }

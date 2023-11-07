@@ -11,18 +11,29 @@ import Resolver
 
 struct CollectionRepositoryImpl: CollectionRepository {
     @Injected private var collectionDao: CollectionDao
+    @Injected private var pokemonAPI: PokemonAPIProtocol
 
-    func getCollection() -> AnyPublisher<[Pokemon], Error> {
-        collectionDao.getCollection().map { collectionMember in collectionMember.map { pokemon in Pokemon(id: pokemon.pokemonId, name: "", image: "", types: []) }}.eraseToAnyPublisher()
-    }
-    
-    
     func addPokemon(pokemonId: Int) throws {
-        var pokemon = CollectionMember(pokemonId: pokemonId)
-        try collectionDao.addPokemon(pokemonEntity: &pokemon)
+        try collectionDao.addPokemon(pokemonEntity: CollectionMember(pokemonId: pokemonId))
+    }
+
+    func removePokemon(pokemonId: Int) throws {
+        try collectionDao.removePokemon(pokemonId: pokemonId)
     }
     
-    func removePokemon(pokemonId: Int) throws {
-        try collectionDao.removePokemon(id: pokemonId)
+    func getCollection() -> AnyPublisher<[Pokemon], Error> {
+        return collectionDao.getCollection()
+            .flatMap { collectionEntities -> AnyPublisher<[PokemonDto], Error> in
+                let pokemonPublishers = collectionEntities.map { entity in
+                    return pokemonAPI.fetchPokemon(pokemonId: entity.pokemonId)
+                }
+                return Publishers.MergeMany(pokemonPublishers).collect().eraseToAnyPublisher()
+            }
+            .map { pokemonDtos in
+                return pokemonDtos.map { pokemonDto in
+                    Pokemon(id: pokemonDto.id, name: pokemonDto.name, image: pokemonDto.image, types: pokemonDto.apiTypes.map { $0.toType })
+                }
+            }
+            .eraseToAnyPublisher()
     }
 }

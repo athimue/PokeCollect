@@ -33,7 +33,6 @@ class TeamViewModel: ObservableObject {
         do {
             try addPokemonToTeamUseCase.invoke(pokemonId: pokemonId)
         } catch {
-            print("add error")
             print(error)
         }
     }

@@ -14,11 +14,28 @@ let errorDomain = "PokemonAPIErrorDomain"
 protocol PokemonAPIProtocol {
     func fetchPokemons(limit: Int, completion: @escaping (Result<[PokemonDto], Error>) -> Void)
     func fetchPokemonGeneration(generation: Int) -> AnyPublisher<[PokemonDto], Error>
+    func fetchPokemon(pokemonId: Int) -> AnyPublisher<PokemonDto, Error>
     func fetchTypes() -> AnyPublisher<[TypeDetailDto], Error>
     func fetchSearch(query: String) -> AnyPublisher<PokemonDto, Error>
 }
 
 class PokemonAPI: PokemonAPIProtocol {
+    
+    func fetchPokemon(pokemonId: Int) -> AnyPublisher<PokemonDto, Error> {
+        guard let url = URL(string: "\(baseURL)/pokemon/\(pokemonId)") else {
+            let error = NSError(domain: errorDomain, code: 1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])
+            return Result<PokemonDto, Error>.Publisher(error).eraseToAnyPublisher()
+        }
+        
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .map { $0.data }
+            .decode(type: PokemonDto.self, decoder: JSONDecoder())
+            .mapError { error -> Error in
+                error
+            }
+            .eraseToAnyPublisher()
+    }
+    
     func fetchPokemons(limit: Int, completion: @escaping (Result<[PokemonDto], Error>) -> Void) {
         guard let url = URL(string: "\(baseURL)/pokemon/limit/\(limit)") else {
             let error = NSError(domain: errorDomain, code: 1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])

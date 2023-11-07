@@ -12,11 +12,10 @@ protocol AddPokemonToTeamUseCaseProtocol {
     func invoke(pokemonId: Int) throws -> Void
 }
 
-class AddPokemonToTeamUseCase : AddPokemonToTeamUseCaseProtocol {
-    
+class AddPokemonToTeamUseCase: AddPokemonToTeamUseCaseProtocol {
     @Injected private var teamRepository: TeamRepository
-    
-    func invoke(pokemonId: Int) throws -> Void{
+
+    func invoke(pokemonId: Int) throws {
         try teamRepository.addPokemon(pokemonId: pokemonId)
     }
 }

@@ -26,32 +26,30 @@ struct TeamView: View {
             Button("Add random pokemon") {
                 viewModel.addPokemon(pokemonId: 1)
             }
-            List {
-                HStack {
-                    VStack {
-                        Text("POKEMON 1")
-                    }.frame(maxWidth: .infinity)
-                    VStack {
-                        Text("POKEMON 2")
-                    }.frame(maxWidth: .infinity)
+            HStack {
+                VStack {
+                    Text("POKEMON 1")
                 }.frame(maxWidth: .infinity)
-                HStack {
-                    VStack {
-                        Text("POKEMON 3")
-                    }.frame(maxWidth: .infinity)
-                    VStack {
-                        Text("POKEMON 4")
-                    }.frame(maxWidth: .infinity)
+                VStack {
+                    Text("POKEMON 2")
                 }.frame(maxWidth: .infinity)
-                HStack {
-                    VStack {
-                        Text("POKEMON 5")
-                    }.frame(maxWidth: .infinity)
-                    VStack {
-                        Text("POKEMON 6")
-                    }.frame(maxWidth: .infinity)
+            }.frame(maxWidth: .infinity)
+            HStack {
+                VStack {
+                    Text("POKEMON 3")
                 }.frame(maxWidth: .infinity)
-            }
+                VStack {
+                    Text("POKEMON 4")
+                }.frame(maxWidth: .infinity)
+            }.frame(maxWidth: .infinity)
+            HStack {
+                VStack {
+                    Text("POKEMON 5")
+                }.frame(maxWidth: .infinity)
+                VStack {
+                    Text("POKEMON 6")
+                }.frame(maxWidth: .infinity)
+            }.frame(maxWidth: .infinity)
         }
     }
 }

@@ -14,9 +14,8 @@ protocol GetTeamUseCaseProtocol {
 }
 
 class GetTeamUseCase: GetTeamUseCaseProtocol {
-    
     @Injected private var teamRepository: TeamRepository
-    
+
     func invoke() -> AnyPublisher<[Pokemon], Error> {
         return teamRepository.getTeam()
     }

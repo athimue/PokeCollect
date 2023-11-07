@@ -64,5 +64,8 @@ extension Resolver: ResolverRegistering {
         register {
             AddPokemonToCollectionUseCase() as AddPokemonToCollectionUseCaseProtocol
         }
+        register {
+            DeletePokemonFromCollectionUseCase() as DeletePokemonFromCollectionUseCaseProtocol
+        }
     }
 }

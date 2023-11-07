@@ -13,6 +13,7 @@ import Resolver
 class CollectionViewModel: ObservableObject {
     
     @Injected private var getCollectionUseCase: GetCollectionUseCaseProtocol
+    @Injected private var deletePokemonFromCollectionUseCase: DeletePokemonFromCollectionUseCaseProtocol
     
     private var cancellables: Set<AnyCancellable> = []
     
@@ -23,11 +24,19 @@ class CollectionViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink(
                 receiveCompletion: { _ in },
-                receiveValue: { collection in
-                    self.uiModel.collection = collection
+                receiveValue: { pokemons in
+                    self.uiModel.collection = pokemons
+                    self.uiModel.isLoading = false
                 })
             .store(in: &cancellables)
     }
     
-    func removePokemonFromCollection(pokemonId: Int) {}
+    func removePokemonFromCollection(pokemonId: Int) {
+        do {
+            self.uiModel.isLoading = true
+            try deletePokemonFromCollectionUseCase.invoke(pokemonId: pokemonId)
+        } catch {
+            print(error)
+        }
+    }
 }

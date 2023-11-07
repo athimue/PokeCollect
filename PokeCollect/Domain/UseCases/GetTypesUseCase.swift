@@ -17,6 +17,6 @@ class GetTypesPokemonsUseCase: GetTypesUseCaseProtocol {
     @Injected private var typeRepository: TypeRepository
 
     func invoke() -> AnyPublisher<[Type], Error> {
-        return typeRepository.fetchTypes().eraseToAnyPublisher()
+        return typeRepository.fetchTypes()
     }
 }
