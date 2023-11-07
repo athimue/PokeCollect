@@ -10,15 +10,14 @@ import Foundation
 import Resolver
 
 class HomeViewModel: ObservableObject {
-    
     @Injected private var getGenerationPokemonsUseCase: GetGenerationPokemonsUseCaseProtocol
     @Injected private var getTypesUseCase: GetTypesUseCaseProtocol
     private var cancellables = Set<AnyCancellable>()
     
-    @Published var homeUiModel: HomeUiModel = HomeUiModel()
+    @Published var homeUiModel = HomeUiModel()
     @Published var error: Error?
     
-    public func loadData() {
+    init() {
         homeUiModel.generations = []
         fetchPokemonsForGeneration(generation: 1)
         fetchPokemonsForGeneration(generation: 2)
@@ -33,6 +32,7 @@ class HomeViewModel: ObservableObject {
     
     func fetchPokemonsForGeneration(generation: Int) {
         getGenerationPokemonsUseCase.invoke(generation: generation)
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
                     case .finished:
@@ -41,26 +41,24 @@ class HomeViewModel: ObservableObject {
                         print(error)
                 }
             }, receiveValue: { pokemons in
-                DispatchQueue.main.async {
-                    self.homeUiModel.generations.append(Generation(name: "Generation \(generation)", pokemons: pokemons))
-                }
+                self.homeUiModel.generations.append(Generation(name: "Generation \(generation)", pokemons: pokemons))
             })
             .store(in: &cancellables)
     }
     
     func fetchTypes() {
-        getTypesUseCase.invoke().sink(receiveCompletion: { completion in
-            switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    print(error)
-            }
-        }, receiveValue: { types in
-            DispatchQueue.main.async {
+        getTypesUseCase.invoke()
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        print(error)
+                }
+            }, receiveValue: { types in
                 self.homeUiModel.types = types
-            }
-        })
-        .store(in: &cancellables)
+            })
+            .store(in: &cancellables)
     }
 }

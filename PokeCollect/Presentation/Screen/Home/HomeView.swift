@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var viewModel: HomeViewModel = .init()
+    @StateObject var viewModel = HomeViewModel()
     @State var isLoaded = false
 
     var body: some View {
@@ -95,8 +95,5 @@ struct HomeView: View {
                 }
             }.listStyle(PlainListStyle())
         }.frame(maxWidth: .infinity)
-            .onAppear {
-                viewModel.loadData()
-            }
     }
 }
