@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CollectionView: View {
+    @Binding var tabSelection: Int
     @StateObject var viewModel = CollectionViewModel()
 
     var body: some View {
@@ -21,52 +22,67 @@ struct CollectionView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                     .progressViewStyle(CircularProgressViewStyle())
             } else {
-                List {
-                    ForEach(viewModel.uiModel.collection) { pokemon in
-                        HStack(spacing: 2) {
-                            AsyncImage(url: URL(string: pokemon.image)) {
-                                phase in
-                                switch phase {
-                                    case .success(let image):
-                                        image.resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(maxWidth: 60, maxHeight: 60)
-                                    default:
-                                        Image(systemName: "photo")
-                                            .frame(width: 60, height: 60)
-                                }
-                            }
-                            VStack {
-                                Text(String(format: "N° %04d", pokemon.id))
-                                Text(pokemon.name)
-                                HStack {
-                                    ForEach(pokemon.types) {
-                                        type in
-                                        HStack {
-                                            AsyncImage(url: URL(string: type.image)) {
-                                                phase in
-                                                switch phase {
-                                                    case .success(let image):
-                                                        image.resizable()
-                                                            .aspectRatio(contentMode: .fit)
-                                                            .frame(maxWidth: 20, maxHeight: 20)
-                                                    default:
-                                                        Image(systemName: "photo")
-                                                            .frame(width: 20, height: 20)
-                                                }
-                                            }
-                                            Text(type.name)
-                                        }
+                ZStack(alignment: .bottomTrailing) {
+                    List {
+                        ForEach(viewModel.uiModel.collection) { pokemon in
+                            HStack(spacing: 2) {
+                                AsyncImage(url: URL(string: pokemon.image)) {
+                                    phase in
+                                    switch phase {
+                                        case .success(let image):
+                                            image.resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(maxWidth: 60, maxHeight: 60)
+                                        default:
+                                            Image(systemName: "photo")
+                                                .frame(width: 60, height: 60)
                                     }
                                 }
-                            }.frame(maxWidth: .infinity)
-                        }.swipeActions {
-                            Button (action: { viewModel.removePokemonFromCollection(pokemonId: pokemon.id) }) {
+                                VStack {
+                                    Text(String(format: "N° %04d", pokemon.id))
+                                    Text(pokemon.name)
+                                    HStack {
+                                        ForEach(pokemon.types) {
+                                            type in
+                                            HStack {
+                                                AsyncImage(url: URL(string: type.image)) {
+                                                    phase in
+                                                    switch phase {
+                                                        case .success(let image):
+                                                            image.resizable()
+                                                                .aspectRatio(contentMode: .fit)
+                                                                .frame(maxWidth: 20, maxHeight: 20)
+                                                        default:
+                                                            Image(systemName: "photo")
+                                                                .frame(width: 20, height: 20)
+                                                    }
+                                                }
+                                                Text(type.name)
+                                            }
+                                        }
+                                    }
+                                }.frame(maxWidth: .infinity)
+                            }.swipeActions {
+                                Button (action: { viewModel.removePokemonFromCollection(pokemonId: pokemon.id) }) {
                                     Label("Delete", systemImage: "trash.fill")
+                                }
+                                .tint(.red)
                             }
-                            .tint(.red)
-                        }
-                    }.listStyle(.plain)
+                        }.listStyle(.plain)
+                    }
+                    Button {
+                        tabSelection = 1
+                    } label: {
+                        Image(systemName: "plus")
+                            .font(.title.weight(.semibold))
+                            .padding()
+                            .background(Color.pink)
+                            .foregroundColor(.white)
+                            .clipShape(Circle())
+                            .shadow(radius: 4, x: 0, y: 4)
+                        
+                    }
+                    .padding()
                 }
             }
         }

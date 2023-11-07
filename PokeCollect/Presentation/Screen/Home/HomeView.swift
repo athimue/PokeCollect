@@ -93,7 +93,7 @@ struct HomeView: View {
                         Text(type.name)
                     }
                 }
-            }.listStyle(PlainListStyle())
+            }.listStyle(.plain)
         }.frame(maxWidth: .infinity)
     }
 }
