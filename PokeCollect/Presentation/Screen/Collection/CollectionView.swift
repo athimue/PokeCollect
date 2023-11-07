@@ -22,6 +22,12 @@ struct CollectionView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                     .progressViewStyle(CircularProgressViewStyle())
             } else {
+                Divider()
+                Text("TOTAL : \(viewModel.uiModel.collection.count) POKEMON")
+                    .font(.system(size: 20, weight: .bold, design: .monospaced))
+                    .padding(10)
+                    .frame(maxWidth: .infinity)
+                Divider()
                 ZStack(alignment: .bottomTrailing) {
                     List {
                         ForEach(viewModel.uiModel.collection) { pokemon in
@@ -68,8 +74,8 @@ struct CollectionView: View {
                                 }
                                 .tint(.red)
                             }
-                        }.listStyle(.plain)
-                    }
+                        }
+                    }.listStyle(.plain)
                     Button {
                         tabSelection = Screen.SEARCH.rawValue
                     } label: {
