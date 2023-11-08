@@ -65,18 +65,7 @@ struct TeamView: View {
                                 }
                                 ForEach(viewModel.uiModel.defensiveCoverage.defensiveTypes) { defensiveType in
                                     HStack {
-                                        AsyncImage(url: URL(string: defensiveType.image)) {
-                                            phase in
-                                            switch phase {
-                                                case .success(let image):
-                                                    image.resizable()
-                                                        .aspectRatio(contentMode: .fit)
-                                                        .frame(maxWidth: 20, maxHeight: 20)
-                                                default:
-                                                    Image(systemName: "photo")
-                                                        .frame(width: 20, height: 20)
-                                            }
-                                        }.frame(maxWidth: 130)
+                                        URLImage(url: defensiveType.image, defaultImage: "photo", size: 20).frame(maxWidth: 130)
                                         VStack {
                                             Text("\(defensiveType.name)")
                                                 .fontWeight(.bold)

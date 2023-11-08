@@ -29,18 +29,7 @@ struct HomeView: View {
                         ForEach(generation.pokemons) {
                             pokemon in
                             HStack(spacing: 2) {
-                                AsyncImage(url: URL(string: pokemon.image)) {
-                                    phase in
-                                    switch phase {
-                                        case .success(let image):
-                                            image.resizable()
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(maxWidth: 60, maxHeight: 60)
-                                        default:
-                                            Image(systemName: "photo")
-                                                .frame(width: 60, height: 60)
-                                    }
-                                }
+                                URLImage(url: pokemon.image, defaultImage: "photo", size: 60)
                                 VStack {
                                     Text(String(format: "N° %04d", pokemon.id))
                                     Text(pokemon.name)
@@ -48,18 +37,7 @@ struct HomeView: View {
                                         ForEach(pokemon.types) {
                                             type in
                                             HStack {
-                                                AsyncImage(url: URL(string: type.image)) {
-                                                    phase in
-                                                    switch phase {
-                                                        case .success(let image):
-                                                            image.resizable()
-                                                                .aspectRatio(contentMode: .fit)
-                                                                .frame(maxWidth: 20, maxHeight: 20)
-                                                        default:
-                                                            Image(systemName: "photo")
-                                                                .frame(width: 20, height: 20)
-                                                    }
-                                                }
+                                                URLImage(url: type.image, defaultImage: "photo", size: 20)
                                                 Text(type.name)
                                             }
                                         }
@@ -78,18 +56,7 @@ struct HomeView: View {
                     .listRowSeparator(.hidden)
                 ForEach(viewModel.homeUiModel.types) { type in
                     HStack {
-                        AsyncImage(url: URL(string: type.image)) {
-                            phase in
-                            switch phase {
-                                case .success(let image):
-                                    image.resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(maxWidth: 20, maxHeight: 20)
-                                default:
-                                    Image(systemName: "photo")
-                                        .frame(width: 20, height: 20)
-                            }
-                        }
+                        URLImage(url: type.image, defaultImage: "photo", size: 20)
                         Text(type.name)
                     }
                 }

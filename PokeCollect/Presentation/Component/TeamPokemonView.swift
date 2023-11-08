@@ -24,33 +24,11 @@ struct TeamPokemonView: View {
                     HStack {
                         ForEach(pokemon.types) {
                             type in
-                            AsyncImage(url: URL(string: type.image)) {
-                                phase in
-                                switch phase {
-                                    case .success(let image):
-                                        image.resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(maxWidth: typeSize, maxHeight: typeSize)
-                                    default:
-                                        Image(systemName: "photo")
-                                            .frame(width: typeSize, height: typeSize)
-                                }
-                            }
+                            URLImage(url: type.image, defaultImage: "photo", size: typeSize)
                         }
                     }
                 }
-                AsyncImage(url: URL(string: pokemon.image)) {
-                    phase in
-                    switch phase {
-                        case .success(let image):
-                            image.resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(maxWidth: pokemonSize, maxHeight: pokemonSize)
-                        default:
-                            Image(systemName: "photo")
-                                .frame(width: pokemonSize, height: pokemonSize)
-                    }
-                }
+                URLImage(url: pokemon.image, defaultImage: "photo", size: pokemonSize)
             }
             Button(action: onDelete) {
                 Image(systemName: "minus.circle")
