@@ -26,7 +26,6 @@ struct TeamView: View {
                 if viewModel.uiModel.isLoading {
                     LoaderView()
                 } else {
-                                                    .frame(maxWidth: 80, maxHeight: 80)
                     if viewModel.uiModel.team.isEmpty {
                         SubTitleView(subTitle: "No pokemon inside the team")
                     } else {

@@ -25,7 +25,7 @@ class SearchViewModel: ObservableObject {
             .sink(
                 receiveCompletion: { _ in },
                 receiveValue: { result in
-                    self.uiModel.result = result.map { result in SearchResultModel(id: result.id, name: result.name, image: result.image, types: result.types) }
+                    self.uiModel.result = result.map { result in PokemonListItemModel(id: result.id, name: result.name, image: result.image, types: result.types) }
                 })
             .store(in: &cancellables)
     }

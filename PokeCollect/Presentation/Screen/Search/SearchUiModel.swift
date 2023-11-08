@@ -9,5 +9,5 @@ import Foundation
 
 struct SearchUiModel: Identifiable {
     let id = UUID()
-    var result : [SearchResultModel] = []
+    var result : [PokemonListItemModel] = []
 }
