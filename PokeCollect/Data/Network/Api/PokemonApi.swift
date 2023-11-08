@@ -105,7 +105,6 @@ class PokemonAPI: PokemonAPIProtocol {
     }
     
     func fetchSuggestion(team: [Pokemon]) -> AnyPublisher<[PokemonDto], Error> {
-        print(team)
         guard let url = URL(string: "\(baseURL)/team/suggestion/v2") else {
             let error = NSError(domain: errorDomain, code: 1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])
             return Result<[PokemonDto], Error>.Publisher(error).eraseToAnyPublisher()
@@ -116,7 +115,6 @@ class PokemonAPI: PokemonAPIProtocol {
         let jsonBody: [[String: String]] = team.reduce(into: [[String: String]]()) { result, pokemon in
             result.append([String(pokemon.id): ""])
         }
-        print(jsonBody)
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: jsonBody, options: [])
             request.httpBody = jsonData
@@ -124,7 +122,6 @@ class PokemonAPI: PokemonAPIProtocol {
         } catch {
             return Fail(error: error).eraseToAnyPublisher()
         }
-        print(jsonBody)
         return URLSession.shared.dataTaskPublisher(for: request)
             .map { $0.data }
             .decode(type: [PokemonDto].self, decoder: JSONDecoder())
@@ -142,11 +139,9 @@ class PokemonAPI: PokemonAPIProtocol {
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        print("coucou")
         let jsonBody: [[String: String]] = team.reduce(into: [[String: String]]()) { result, pokemon in
             result.append([String(pokemon.id): ""])
         }
-        print(jsonBody)
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: jsonBody, options: [])
             request.httpBody = jsonData
@@ -155,7 +150,6 @@ class PokemonAPI: PokemonAPIProtocol {
             return Fail(error: error).eraseToAnyPublisher()
         }
         
-        print("ici")
         return URLSession.shared.dataTaskPublisher(for: request)
             .map { $0.data }
             .decode(type: [DefensiveCoverageDto].self, decoder: JSONDecoder())

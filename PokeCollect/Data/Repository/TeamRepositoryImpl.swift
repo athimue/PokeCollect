@@ -34,6 +34,6 @@ struct TeamRepositoryImpl: TeamRepository {
     }
 
     func removePokemon(pokemonId: Int) throws {
-        try teamDao.removePokemon(id: pokemonId)
+        try teamDao.removePokemon(pokemonId: pokemonId)
     }
 }

@@ -27,40 +27,52 @@ struct TeamView: View {
                 } else {
                     LazyVGrid(columns: columns) {
                         ForEach(viewModel.uiModel.team, id: \.self) { pokemon in
-                            HStack {
-                                VStack {
-                                    Text(String(format: "N° %04d", pokemon.id))
-                                    Text(pokemon.name)
-                                    HStack {
-                                        ForEach(pokemon.types) {
-                                            type in
-                                            AsyncImage(url: URL(string: type.image)) {
-                                                phase in
-                                                switch phase {
-                                                    case .success(let image):
-                                                        image.resizable()
-                                                            .aspectRatio(contentMode: .fit)
-                                                            .frame(maxWidth: 20, maxHeight: 20)
-                                                    default:
-                                                        Image(systemName: "photo")
-                                                            .frame(width: 20, height: 20)
+                            ZStack(alignment: .topTrailing) {
+                                HStack {
+                                    VStack {
+                                        Text(String(format: "N° %04d", pokemon.id))
+                                        Text(pokemon.name)
+                                        HStack {
+                                            ForEach(pokemon.types) {
+                                                type in
+                                                AsyncImage(url: URL(string: type.image)) {
+                                                    phase in
+                                                    switch phase {
+                                                        case .success(let image):
+                                                            image.resizable()
+                                                                .aspectRatio(contentMode: .fit)
+                                                                .frame(maxWidth: 20, maxHeight: 20)
+                                                        default:
+                                                            Image(systemName: "photo")
+                                                                .frame(width: 20, height: 20)
+                                                    }
                                                 }
                                             }
                                         }
                                     }
-                                }
-                                AsyncImage(url: URL(string: pokemon.image)) {
-                                    phase in
-                                    switch phase {
-                                        case .success(let image):
-                                            image.resizable()
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(maxWidth: 80, maxHeight: 80)
-                                        default:
-                                            Image(systemName: "photo")
-                                                .frame(width: 60, height: 60)
+                                    AsyncImage(url: URL(string: pokemon.image)) {
+                                        phase in
+                                        switch phase {
+                                            case .success(let image):
+                                                image.resizable()
+                                                    .aspectRatio(contentMode: .fit)
+                                                    .frame(maxWidth: 80, maxHeight: 80)
+                                            default:
+                                                Image(systemName: "photo")
+                                                    .frame(width: 60, height: 60)
+                                        }
                                     }
                                 }
+                                Button(action: {
+                                    print("remove")
+                                    viewModel.removePokemon(pokemonId: pokemon.id)
+                                }) {
+                                    Image(systemName: "plus")
+                                        .background(Color.pink)
+                                        .foregroundColor(.white)
+                                        .clipShape(Circle())
+                                        .shadow(radius: 4, x: 0, y: 4)
+                                }.buttonStyle(BorderlessButtonStyle())
                             }
                         }
                     }

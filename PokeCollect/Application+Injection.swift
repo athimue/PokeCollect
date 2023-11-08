@@ -73,5 +73,8 @@ extension Resolver: ResolverRegistering {
         register {
             GetDefensiveCoverageUseCase() as GetDefensiveCoverageUseCaseProtocol
         }
+        register {
+            DeletePokemonFromTeamUseCase() as DeletePokemonFromTeamUseCaseProtocol
+        }
     }
 }

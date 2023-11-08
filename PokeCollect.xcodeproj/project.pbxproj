@@ -42,6 +42,7 @@
 		93853ECB2AFB8E8B003D50AE /* StatisticsRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93853ECA2AFB8E8B003D50AE /* StatisticsRepositoryImpl.swift */; };
 		93853ECD2AFB9014003D50AE /* DefensiveCoverageDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93853ECC2AFB9014003D50AE /* DefensiveCoverageDto.swift */; };
 		93853ECF2AFB9D1C003D50AE /* PokemonTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93853ECE2AFB9D1C003D50AE /* PokemonTranslator.swift */; };
+		93853ED12AFBB55B003D50AE /* DeletePokemonFromTeamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93853ED02AFBB55B003D50AE /* DeletePokemonFromTeamUseCase.swift */; };
 		93A98AA52AFA4B1C0098198B /* DeletePokemonFromCollectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A98AA42AFA4B1C0098198B /* DeletePokemonFromCollectionUseCase.swift */; };
 		93AEE6252AEA56CE0089E00E /* PokemonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AEE6242AEA56CE0089E00E /* PokemonRepository.swift */; };
 		93AEE6292AEA63C60089E00E /* Generation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AEE6282AEA63C60089E00E /* Generation.swift */; };
@@ -142,6 +143,7 @@
 		93853ECA2AFB8E8B003D50AE /* StatisticsRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsRepositoryImpl.swift; sourceTree = "<group>"; };
 		93853ECC2AFB9014003D50AE /* DefensiveCoverageDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefensiveCoverageDto.swift; sourceTree = "<group>"; };
 		93853ECE2AFB9D1C003D50AE /* PokemonTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTranslator.swift; sourceTree = "<group>"; };
+		93853ED02AFBB55B003D50AE /* DeletePokemonFromTeamUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePokemonFromTeamUseCase.swift; sourceTree = "<group>"; };
 		93A98AA42AFA4B1C0098198B /* DeletePokemonFromCollectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePokemonFromCollectionUseCase.swift; sourceTree = "<group>"; };
 		93AEE6242AEA56CE0089E00E /* PokemonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonRepository.swift; sourceTree = "<group>"; };
 		93AEE6282AEA63C60089E00E /* Generation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generation.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 				93B78BF62AE18106006041BB /* GetTypesUseCase.swift */,
 				9376CC812AF8F57E00BECBAB /* GetSearchUseCase.swift */,
 				93A98AA42AFA4B1C0098198B /* DeletePokemonFromCollectionUseCase.swift */,
+				93853ED02AFBB55B003D50AE /* DeletePokemonFromTeamUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -618,6 +621,7 @@
 				930228542AEAB4F30032626F /* CollectionMember.swift in Sources */,
 				930228672AEAC0220032626F /* CollectionRepositoryImpl.swift in Sources */,
 				930228652AEAC0120032626F /* TeamRepositoryImpl.swift in Sources */,
+				93853ED12AFBB55B003D50AE /* DeletePokemonFromTeamUseCase.swift in Sources */,
 				9376CC802AF8F52900BECBAB /* SearchResultModel.swift in Sources */,
 				9376CC8A2AF9322600BECBAB /* AddPokemonToCollectionUseCase.swift in Sources */,
 				930B7F322AEBAAC00072EA92 /* GetCollectionUseCase.swift in Sources */,

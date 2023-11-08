@@ -9,7 +9,6 @@ import Foundation
 
 class PokemonTranslator {
     static func translateType(_ type: String) -> String {
-        print(type)
         switch type {
             case "Normal":
                 return "f/fb/Normal"

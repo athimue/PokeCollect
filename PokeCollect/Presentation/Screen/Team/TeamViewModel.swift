@@ -12,9 +12,10 @@ import Resolver
 
 class TeamViewModel: ObservableObject {
     @Injected private var getTeamUseCase: GetTeamUseCaseProtocol
-    @Injected private var addPokemonToTeamUseCase: AddPokemonToTeamUseCaseProtocol
     @Injected private var getSuggestionUseCase: GetSuggestionUseCaseProtocol
     @Injected private var getDefensiveCoverageUseCase: GetDefensiveCoverageUseCaseProtocol
+    @Injected private var addPokemonToTeamUseCase: AddPokemonToTeamUseCaseProtocol
+    @Injected private var deletePokemonFromTeamUseCase: DeletePokemonFromTeamUseCaseProtocol
 
     private var cancellables: Set<AnyCancellable> = []
 
@@ -70,15 +71,25 @@ class TeamViewModel: ObservableObject {
                     .store(in: &cancellables)
             }
         } else {
-            self.uiModel.isLoading = false
+            uiModel.isLoading = false
         }
     }
 
     func addPokemon(pokemonId: Int) {
+        self.uiModel.isLoading = true
         if addPokemonToTeamUseCase.invoke(pokemonId: pokemonId) {
             print("retourne false")
         } else {
             print("retourne true")
+        }
+    }
+
+    func removePokemon(pokemonId: Int) {
+        do {
+            self.uiModel.isLoading = true
+            try deletePokemonFromTeamUseCase.invoke(pokemonId: pokemonId)
+        } catch {
+            print("error")
         }
     }
 }
