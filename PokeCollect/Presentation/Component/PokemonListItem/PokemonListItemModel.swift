@@ -8,7 +8,7 @@
 import Foundation
 
 struct PokemonListItemModel: Identifiable {
-    var id : Int
+    var id: Int
     var name: String
     var image: String
     var types: [Type]

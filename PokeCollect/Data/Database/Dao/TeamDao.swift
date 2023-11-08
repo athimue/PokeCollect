@@ -29,7 +29,7 @@ struct TeamDao {
     }
     
     func addPokemon(teamMember: TeamMember) -> Bool {
-        do  {
+        do {
             let team: [TeamMember] = try databaseManager.reader.read { db in
                 try TeamMember.fetchAll(db)
             }

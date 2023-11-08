@@ -14,7 +14,7 @@ protocol DeletePokemonFromTeamUseCaseProtocol {
 
 class DeletePokemonFromTeamUseCase: DeletePokemonFromTeamUseCaseProtocol {
     @Injected private var teamDao: TeamDao
-    
+
     func invoke(pokemonId: Int) throws {
         try teamDao.removePokemon(pokemonId: pokemonId)
     }

@@ -9,7 +9,6 @@ import Foundation
 import Resolver
 
 struct PokemonRepositoryImpl: PokemonRepository {
-    
     @Injected private var pokemonApi: PokemonAPIProtocol
     
     func fetchPokemons(query: String) -> AnyPublisher<[Pokemon], Error> {
@@ -28,5 +27,4 @@ struct PokemonRepositoryImpl: PokemonRepository {
             pokemonDto in Pokemon(id: pokemonDto.id, name: pokemonDto.name, image: pokemonDto.image, types: pokemonDto.apiTypes.map { $0.toType })
         }}.eraseToAnyPublisher()
     }
-    
 }

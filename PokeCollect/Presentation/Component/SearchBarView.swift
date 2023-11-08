@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchBarView: View {
     @Binding var query: String
     var onSearch: () -> Void
-    
+
     var body: some View {
         HStack {
             TextField("Search", text: $query, onCommit: {
@@ -20,7 +20,7 @@ struct SearchBarView: View {
             .background(Color(.systemGray6))
             .cornerRadius(8)
             .padding(.horizontal, 10)
-            
+
             Button(action: {
                 onSearch()
             }) {

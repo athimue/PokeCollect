@@ -10,7 +10,7 @@ import Resolver
 extension Resolver: ResolverRegistering {
     public static func registerAllServices() {
         Resolver.defaultScope = ResolverScopeUnique()
-        
+
         // API & DAO
         register {
             PokemonAPI() as PokemonAPIProtocol
@@ -41,7 +41,7 @@ extension Resolver: ResolverRegistering {
         register {
             StatisticsRepositoryImpl() as StatisticsRepository
         }
-        
+
         // USE CASE
         register {
             GetGenerationPokemonsUseCase() as GetGenerationPokemonsUseCaseProtocol

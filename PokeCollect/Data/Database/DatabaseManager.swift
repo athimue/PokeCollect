@@ -5,12 +5,11 @@
 //  Created by Clusel Mathieu on 26/10/2023.
 //
 
+import Combine
 import Foundation
 import GRDB
-import Combine
 
 struct DatabaseManager {
-    
     private let privateWriter: DatabaseWriter
 
     init(_ writer: DatabaseWriter) throws {
@@ -21,7 +20,7 @@ struct DatabaseManager {
     var reader: DatabaseReader {
         privateWriter
     }
-    
+
     var writer: DatabaseWriter {
         privateWriter
     }

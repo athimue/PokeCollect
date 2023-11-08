@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SubTitleView: View {
-    let subTitle : String
+    let subTitle: String
     var body: some View {
         Text(subTitle)
             .font(.system(size: 20, weight: .bold, design: .monospaced))

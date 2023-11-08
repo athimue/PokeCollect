@@ -9,10 +9,10 @@ import Foundation
 
 struct DefensiveCoverage {
     var summary: String = ""
-    var defensiveTypes : [DefensiveType] = []
+    var defensiveTypes: [DefensiveType] = []
 }
 
-struct DefensiveType : Identifiable {
+struct DefensiveType: Identifiable {
     var id = UUID()
     var name: String
     var result: String

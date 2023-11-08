@@ -11,7 +11,6 @@ import GRDB
 import Resolver
 
 class CollectionViewModel: ObservableObject {
-    
     @Injected private var getCollectionUseCase: GetCollectionUseCaseProtocol
     @Injected private var deletePokemonFromCollectionUseCase: DeletePokemonFromCollectionUseCaseProtocol
     
@@ -33,7 +32,7 @@ class CollectionViewModel: ObservableObject {
     
     func removePokemonFromCollection(pokemonId: Int) {
         do {
-            self.uiModel.isLoading = true
+            uiModel.isLoading = true
             try deletePokemonFromCollectionUseCase.invoke(pokemonId: pokemonId)
         } catch {
             print(error)

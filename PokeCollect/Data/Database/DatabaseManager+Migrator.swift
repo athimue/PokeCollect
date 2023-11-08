@@ -12,7 +12,7 @@ extension DatabaseManager {
     var migrator: DatabaseMigrator {
         var migrator = DatabaseMigrator()
         
-        //migrator.eraseDatabaseOnSchemaChange = true
+        // migrator.eraseDatabaseOnSchemaChange = true
         
         migrator.registerMigration("v1") { db in
             try createTeam(db)

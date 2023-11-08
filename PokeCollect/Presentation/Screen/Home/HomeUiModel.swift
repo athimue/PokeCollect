@@ -9,6 +9,6 @@ import Foundation
 
 struct HomeUiModel: Identifiable {
     let id = UUID()
-    var generations : [Generation] = []
+    var generations: [Generation] = []
     var types: [Type] = []
 }

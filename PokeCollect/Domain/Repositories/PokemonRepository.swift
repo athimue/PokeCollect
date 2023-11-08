@@ -5,8 +5,8 @@
 //  Created by Clusel Mathieu on 26/10/2023.
 //
 
-import Foundation
 import Combine
+import Foundation
 import Resolver
 
 protocol PokemonRepository {

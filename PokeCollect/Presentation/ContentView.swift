@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum Screen :  Int {
+enum Screen: Int {
     case HOME = 0
     case SEARCH = 1
     case TEAM = 2

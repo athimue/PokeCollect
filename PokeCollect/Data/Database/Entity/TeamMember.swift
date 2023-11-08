@@ -10,6 +10,6 @@ import GRDB
 
 struct TeamMember: Codable, PersistableRecord, EncodableRecord, FetchableRecord, TableRecord {
     var pokemonId: Int
-    
+
     static var databaseTableName: String { "team" }
 }

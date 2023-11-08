@@ -20,17 +20,17 @@ struct CollectionRepositoryImpl: CollectionRepository {
     func removePokemon(pokemonId: Int) throws {
         try collectionDao.removePokemon(pokemonId: pokemonId)
     }
-    
+
     func getCollection() -> AnyPublisher<[Pokemon], Error> {
         return collectionDao.getCollection()
             .flatMap { collectionEntities -> AnyPublisher<[PokemonDto], Error> in
                 let pokemonPublishers = collectionEntities.map { entity in
-                    return pokemonAPI.fetchPokemon(pokemonId: entity.pokemonId)
+                    pokemonAPI.fetchPokemon(pokemonId: entity.pokemonId)
                 }
                 return Publishers.MergeMany(pokemonPublishers).collect().eraseToAnyPublisher()
             }
             .map { pokemonDtos in
-                return pokemonDtos.map { pokemonDto in
+                pokemonDtos.map { pokemonDto in
                     Pokemon(id: pokemonDto.id, name: pokemonDto.name, image: pokemonDto.image, types: pokemonDto.apiTypes.map { $0.toType })
                 }
             }

@@ -22,6 +22,7 @@
 		930B7F362AEBB17A0072EA92 /* TeamUiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B7F352AEBB17A0072EA92 /* TeamUiModel.swift */; };
 		930B7F382AEBBBB80072EA92 /* AddPokemonToTeamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B7F372AEBBBB80072EA92 /* AddPokemonToTeamUseCase.swift */; };
 		930F5C692AF013E90064171C /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 930F5C682AF013E90064171C /* GRDB */; };
+		936099202AFBEAE20062725C /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9360991F2AFBEAE20062725C /* URLImage.swift */; };
 		9376CC702AF1AAE900BECBAB /* GRDBQuery in Frameworks */ = {isa = PBXBuildFile; productRef = 9376CC6F2AF1AAE900BECBAB /* GRDBQuery */; };
 		9376CC722AF8DE2900BECBAB /* DatabaseManager+Persistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376CC712AF8DE2900BECBAB /* DatabaseManager+Persistent.swift */; };
 		9376CC742AF8DE7F00BECBAB /* DatabaseManager+Migrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376CC732AF8DE7F00BECBAB /* DatabaseManager+Migrator.swift */; };
@@ -129,6 +130,7 @@
 		930B7F332AEBAC520072EA92 /* GetTeamUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTeamUseCase.swift; sourceTree = "<group>"; };
 		930B7F352AEBB17A0072EA92 /* TeamUiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamUiModel.swift; sourceTree = "<group>"; };
 		930B7F372AEBBBB80072EA92 /* AddPokemonToTeamUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPokemonToTeamUseCase.swift; sourceTree = "<group>"; };
+		9360991F2AFBEAE20062725C /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
 		9376CC712AF8DE2900BECBAB /* DatabaseManager+Persistent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatabaseManager+Persistent.swift"; sourceTree = "<group>"; };
 		9376CC732AF8DE7F00BECBAB /* DatabaseManager+Migrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatabaseManager+Migrator.swift"; sourceTree = "<group>"; };
 		9376CC762AF8EB0800BECBAB /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				93853ED42AFBDA15003D50AE /* NoTeamPokemonView.swift */,
 				93853ED62AFBDC2C003D50AE /* ProgressView.swift */,
 				93853ED82AFBDC84003D50AE /* SubTitleView.swift */,
+				9360991F2AFBEAE20062725C /* URLImage.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -678,6 +681,7 @@
 				93A98AA52AFA4B1C0098198B /* DeletePokemonFromCollectionUseCase.swift in Sources */,
 				9376CC742AF8DE7F00BECBAB /* DatabaseManager+Migrator.swift in Sources */,
 				9302284E2AEAA7960032626F /* CollectionDao.swift in Sources */,
+				936099202AFBEAE20062725C /* URLImage.swift in Sources */,
 				93AEE6292AEA63C60089E00E /* Generation.swift in Sources */,
 				93BBF9D22ADFCC1200FF903F /* TeamView.swift in Sources */,
 				930228612AEABECC0032626F /* TeamRepository.swift in Sources */,

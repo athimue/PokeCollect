@@ -18,7 +18,7 @@ struct SearchView: View {
                     .font(.system(size: 20, weight: .bold, design: .monospaced))
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
                     .listRowSeparator(.hidden)
-                SearchBarView(query: $textInput, onSearch: {viewModel.search(query: textInput)})
+                SearchBarView(query: $textInput, onSearch: { viewModel.search(query: textInput) })
                     .padding()
                 List {
                     ForEach(viewModel.uiModel.result) { pokemon in

@@ -9,7 +9,6 @@ import Foundation
 import GRDB
 
 extension DatabaseManager {
-    
     static let shared = makeShared()
     
     static func makeShared() -> DatabaseManager {

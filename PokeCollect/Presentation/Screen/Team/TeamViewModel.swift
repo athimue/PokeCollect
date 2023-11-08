@@ -76,7 +76,7 @@ class TeamViewModel: ObservableObject {
     }
 
     func addPokemon(pokemonId: Int) {
-        self.uiModel.isLoading = true
+        uiModel.isLoading = true
         if addPokemonToTeamUseCase.invoke(pokemonId: pokemonId) {
             print("retourne false")
         } else {
@@ -86,7 +86,7 @@ class TeamViewModel: ObservableObject {
 
     func removePokemon(pokemonId: Int) {
         do {
-            self.uiModel.isLoading = true
+            uiModel.isLoading = true
             try deletePokemonFromTeamUseCase.invoke(pokemonId: pokemonId)
         } catch {
             print("error")
