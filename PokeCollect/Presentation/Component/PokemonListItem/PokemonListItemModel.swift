@@ -1,5 +1,5 @@
 //
-//  SearchResultModel.swift
+//  PokemonListItemModel.swift
 //  PokeCollect
 //
 //  Created by Clusel Mathieu on 06/11/2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SearchResultModel: Identifiable {
+struct PokemonListItemModel: Identifiable {
     var id : Int
     var name: String
     var image: String

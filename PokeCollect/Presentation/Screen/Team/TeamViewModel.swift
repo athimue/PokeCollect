@@ -48,7 +48,7 @@ class TeamViewModel: ObservableObject {
                             }
                         },
                         receiveValue: { pokemonTeam in
-                            self.uiModel.suggestion = pokemonTeam
+                            self.uiModel.suggestion = pokemonTeam.map { result in PokemonListItemModel(id: result.id, name: result.name, image: result.image, types: result.types) }
                             self.uiModel.isLoading = false
                         })
                     .store(in: &cancellables)
