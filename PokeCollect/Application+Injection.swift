@@ -39,9 +39,9 @@ extension Resolver: ResolverRegistering {
             TeamRepositoryImpl() as TeamRepository
         }
         register {
-            SearchRepositoryImpl() as SearchRepository
+            StatisticsRepositoryImpl() as StatisticsRepository
         }
-
+        
         // USE CASE
         register {
             GetGenerationPokemonsUseCase() as GetGenerationPokemonsUseCaseProtocol
@@ -66,6 +66,12 @@ extension Resolver: ResolverRegistering {
         }
         register {
             DeletePokemonFromCollectionUseCase() as DeletePokemonFromCollectionUseCaseProtocol
+        }
+        register {
+            GetSuggestionUseCase() as GetSuggestionUseCaseProtocol
+        }
+        register {
+            GetDefensiveCoverageUseCase() as GetDefensiveCoverageUseCaseProtocol
         }
     }
 }

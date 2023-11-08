@@ -17,10 +17,11 @@ protocol PokemonAPIProtocol {
     func fetchPokemon(pokemonId: Int) -> AnyPublisher<PokemonDto, Error>
     func fetchTypes() -> AnyPublisher<[TypeDetailDto], Error>
     func fetchSearch(query: String) -> AnyPublisher<PokemonDto, Error>
+    func fetchSuggestion(team: [Pokemon]) -> AnyPublisher<[PokemonDto], Error>
+    func fetchDefensiveCoverage(team: [Pokemon]) -> AnyPublisher<[DefensiveCoverageDto], Error>
 }
 
 class PokemonAPI: PokemonAPIProtocol {
-    
     func fetchPokemon(pokemonId: Int) -> AnyPublisher<PokemonDto, Error> {
         guard let url = URL(string: "\(baseURL)/pokemon/\(pokemonId)") else {
             let error = NSError(domain: errorDomain, code: 1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])
@@ -97,6 +98,67 @@ class PokemonAPI: PokemonAPIProtocol {
         return URLSession.shared.dataTaskPublisher(for: url)
             .map { $0.data }
             .decode(type: PokemonDto.self, decoder: JSONDecoder())
+            .mapError { error -> Error in
+                error
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    func fetchSuggestion(team: [Pokemon]) -> AnyPublisher<[PokemonDto], Error> {
+        print(team)
+        guard let url = URL(string: "\(baseURL)/team/suggestion/v2") else {
+            let error = NSError(domain: errorDomain, code: 1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])
+            return Result<[PokemonDto], Error>.Publisher(error).eraseToAnyPublisher()
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        let jsonBody: [[String: String]] = team.reduce(into: [[String: String]]()) { result, pokemon in
+            result.append([String(pokemon.id): ""])
+        }
+        print(jsonBody)
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: jsonBody, options: [])
+            request.httpBody = jsonData
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        } catch {
+            return Fail(error: error).eraseToAnyPublisher()
+        }
+        print(jsonBody)
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .map { $0.data }
+            .decode(type: [PokemonDto].self, decoder: JSONDecoder())
+            .mapError { error -> Error in
+                error
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    func fetchDefensiveCoverage(team: [Pokemon]) -> AnyPublisher<[DefensiveCoverageDto], Error> {
+        guard let url = URL(string: "\(baseURL)/team/defensive-coverage/v2") else {
+            let error = NSError(domain: errorDomain, code: 1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])
+            return Result<[DefensiveCoverageDto], Error>.Publisher(error).eraseToAnyPublisher()
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        print("coucou")
+        let jsonBody: [[String: String]] = team.reduce(into: [[String: String]]()) { result, pokemon in
+            result.append([String(pokemon.id): ""])
+        }
+        print(jsonBody)
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: jsonBody, options: [])
+            request.httpBody = jsonData
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        } catch {
+            return Fail(error: error).eraseToAnyPublisher()
+        }
+        
+        print("ici")
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .map { $0.data }
+            .decode(type: [DefensiveCoverageDto].self, decoder: JSONDecoder())
             .mapError { error -> Error in
                 error
             }

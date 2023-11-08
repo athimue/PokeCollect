@@ -14,9 +14,9 @@ protocol GetSearchUseCaseProtocol {
 }
 
 class GetSearchUseCase: GetSearchUseCaseProtocol {
-    @Injected private var searchRepository: SearchRepository
+    @Injected private var pokemonRepository: PokemonRepository
 
     func invoke(query: String) -> AnyPublisher<[Pokemon], Error> {
-        return searchRepository.fetchSearch(query: query)
+        return pokemonRepository.fetchPokemons(query: query)
     }
 }

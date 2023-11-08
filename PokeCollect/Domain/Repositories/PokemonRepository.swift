@@ -10,6 +10,7 @@ import Combine
 import Resolver
 
 protocol PokemonRepository {
-    func fetchPokemons(completion: @escaping (Result<[Pokemon], Error>) -> Void)
+    func fetchPokemons(query: String) -> AnyPublisher<[Pokemon], Error>
     func fetchPokemonGeneration(generation: Int) -> AnyPublisher<[Pokemon], Error>
+    func fetchSuggestion(team: [Pokemon]) -> AnyPublisher<[Pokemon], Error>
 }
