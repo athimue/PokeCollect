@@ -8,8 +8,8 @@
 import Foundation
 
 struct DefensiveCoverage {
-    var summary: String = ""
-    var defensiveTypes: [DefensiveType] = []
+    var summary: String
+    var defensiveTypes : [DefensiveType]
 }
 
 struct DefensiveType: Identifiable {

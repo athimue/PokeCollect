@@ -11,8 +11,8 @@ import Resolver
 struct TypeRepositoryImpl: TypeRepository {
     @Injected private var pokemonApi: PokemonAPIProtocol
 
-    func fetchTypes() -> AnyPublisher<[Type], Error> {
-        pokemonApi.fetchTypes().map { typeDtoArray in typeDtoArray.map { typeDto in Type(name: typeDto.name, image: typeDto.image, englishName: typeDto.englishName) }
+    func fetchTypes() -> AnyPublisher<[ElementType], Error> {
+        pokemonApi.fetchTypes().map { typeDtoArray in typeDtoArray.map { typeDto in ElementType(name: typeDto.name, image: typeDto.image, englishName: typeDto.englishName) }
         }.eraseToAnyPublisher()
     }
 }

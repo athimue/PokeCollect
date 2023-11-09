@@ -79,5 +79,8 @@ extension Resolver: ResolverRegistering {
         register {
             DeletePokemonFromTeamUseCase() as DeletePokemonFromTeamUseCaseProtocol
         }
+        register {
+            Router(currentScreen: Router.Screen.pokemondetail(pokemonId: 1))
+        }
     }
 }

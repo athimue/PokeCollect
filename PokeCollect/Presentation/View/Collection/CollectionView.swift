@@ -5,6 +5,7 @@
 //  Created by Clusel Mathieu on 19/10/2023.
 //
 
+import Resolver
 import SwiftUI
 
 struct CollectionView: View {
@@ -24,18 +25,19 @@ struct CollectionView: View {
                     ZStack(alignment: .bottomTrailing) {
                         List {
                             ForEach(viewModel.uiModel.collection) { pokemon in
-                                NavigationLink(destination: PokemonDetailView(pokemonId: pokemon.id)) {
+                                NavigationLink(destination: Router(currentScreen: .pokemondetail(pokemonId: pokemon.id))) {
                                     PokemonListItemView(
                                         pokemon: pokemon,
                                         onTeamAdd: {},
                                         onCollectionAdd: {},
                                         isTeamBtnDisplayed: false,
-                                        isColletionBtnDisplayed: false).swipeActions {
-                                        Button(action: { viewModel.removePokemonFromCollection(pokemonId: pokemon.id) }) {
-                                            Label("Delete", systemImage: "trash.fill")
+                                        isColletionBtnDisplayed: false)
+                                        .swipeActions {
+                                            Button(action: { viewModel.removePokemonFromCollection(pokemonId: pokemon.id) }) {
+                                                Label("Delete", systemImage: "trash.fill")
+                                            }
+                                            .tint(.red)
                                         }
-                                        .tint(.red)
-                                    }
                                 }.background(Color.clear)
                             }
                         }.listStyle(.plain)
@@ -49,7 +51,7 @@ struct CollectionView: View {
                                 .foregroundColor(.white)
                                 .clipShape(Circle())
                                 .shadow(radius: 4, x: 0, y: 4)
-                        }
+                        }.padding()
                     }
                 }
             }

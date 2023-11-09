@@ -10,6 +10,11 @@ import Foundation
 struct Pokemon: Codable, Hashable, Identifiable {
     var id: Int
     var name: String
+    var generation: Int
     var image: String
-    var types: [Type]
+    var types: [ElementType]
+    var stats: [Statistic]
+    var resistances : [Resistance]
+    var evolutions : [Evolution]
+    var preEvolutions : Evolution?
 }

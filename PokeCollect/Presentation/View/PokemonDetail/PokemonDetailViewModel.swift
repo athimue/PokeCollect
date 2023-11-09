@@ -23,6 +23,7 @@ class PokemonDetailViewModel: ObservableObject {
                 receiveCompletion: { _ in },
                 receiveValue: { pokemon in
                     self.uiModel.pokemon = pokemon
+                    print(pokemon)
                     self.uiModel.isLoading = false
                 })
             .store(in: &cancellables)

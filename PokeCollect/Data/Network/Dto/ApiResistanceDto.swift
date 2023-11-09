@@ -10,21 +10,12 @@ import OptionallyDecodable
 
 class ApiResistanceDto: Codable {
     var name: String?
-    let damageMultiplier: Double?
-    var damageRelation: DamageRelation?
+    let damage_multiplier: Double?
+    var damage_relation: String?
 
-    init(name: String?, damageMultiplier: Double?, damageRelation: DamageRelation?) {
+    init(name: String?, damageMultiplier: Double?, damageRelation: String?) {
         self.name = name
-        self.damageMultiplier = damageMultiplier
-        self.damageRelation = damageRelation
+        self.damage_multiplier = damageMultiplier
+        self.damage_relation = damageRelation
     }
-}
-
-enum DamageRelation: String, Codable {
-    case immune
-    case neutral
-    case resistant
-    case twiceResistant = "twice_resistant"
-    case twiceVulnerable = "twice_vulnerable"
-    case vulnerable
 }

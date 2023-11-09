@@ -33,11 +33,11 @@ class CollectionViewModel: ObservableObject {
     }
     
     func removePokemonFromCollection(pokemonId: Int) {
-        do {
-            uiModel.isLoading = true
-            try deletePokemonFromCollectionUseCase.invoke(pokemonId: pokemonId)
-        } catch {
-            print(error)
+        if(deletePokemonFromCollectionUseCase.invoke(pokemonId: pokemonId)) {
+            
+        } else
+        {
+        
         }
     }
 }

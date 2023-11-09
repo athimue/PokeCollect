@@ -19,5 +19,5 @@ class ApiTypeDto: Codable {
 }
 
 extension ApiTypeDto {
-    var toType: Type { Type(name: self.name, image: self.image, englishName: "") }
+    var toType: ElementType { ElementType(name: self.name, image: self.image, englishName: "") }
 }

@@ -10,13 +10,13 @@ import Foundation
 import Resolver
 
 protocol GetTypesUseCaseProtocol {
-    func invoke() -> AnyPublisher<[Type], Error>
+    func invoke() -> AnyPublisher<[ElementType], Error>
 }
 
 class GetTypesPokemonsUseCase: GetTypesUseCaseProtocol {
     @Injected private var typeRepository: TypeRepository
 
-    func invoke() -> AnyPublisher<[Type], Error> {
+    func invoke() -> AnyPublisher<[ElementType], Error> {
         return typeRepository.fetchTypes()
     }
 }

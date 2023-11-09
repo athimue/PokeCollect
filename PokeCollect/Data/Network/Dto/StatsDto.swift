@@ -28,3 +28,16 @@ class StatsDto: Codable {
         self.speed = speed
     }
 }
+
+extension StatsDto {
+    var toStats: [Statistic] {
+        var stats: [Statistic] = []
+        stats.append(Statistic(name: "HP", value: self.hp))
+        stats.append(Statistic(name: "Att", value: self.attack))
+        stats.append(Statistic(name: "Def", value: self.defense))
+        stats.append(Statistic(name: "Sp. Att", value: self.specialAttack))
+        stats.append(Statistic(name: "Sp. Def", value: self.specialDefense))
+        stats.append(Statistic(name: "Speed", value: self.speed))
+        return stats
+    }
+}

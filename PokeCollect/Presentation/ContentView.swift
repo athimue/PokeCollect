@@ -16,6 +16,7 @@ enum Screen: Int {
 
 struct ContentView: View {
     @State private var tabSelection = Screen.HOME.rawValue
+    
     var body: some View {
         TabView(selection: $tabSelection) {
             HomeView()

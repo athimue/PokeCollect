@@ -9,5 +9,5 @@ import Combine
 import Foundation
 
 protocol TypeRepository {
-    func fetchTypes() -> AnyPublisher<[Type], Error>
+    func fetchTypes() -> AnyPublisher<[ElementType], Error>
 }

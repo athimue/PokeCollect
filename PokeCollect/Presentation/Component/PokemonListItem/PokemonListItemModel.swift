@@ -11,5 +11,5 @@ struct PokemonListItemModel: Identifiable, Hashable {
     var id: Int
     var name: String
     var image: String
-    var types: [Type]
+    var types: [ElementType]
 }

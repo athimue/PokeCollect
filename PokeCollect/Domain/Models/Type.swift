@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Type: Codable, Hashable, Identifiable {
+struct ElementType: Codable, Hashable, Identifiable {
     var id = UUID()
-    var name: String
-    var image: String
-    var englishName: String
+    let name: String
+    let image: String
+    let englishName: String
 }

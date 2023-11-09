@@ -11,6 +11,7 @@ import GRDB
 import Resolver
 
 class TeamViewModel: ObservableObject {
+    
     @Injected private var getTeamUseCase: GetTeamUseCaseProtocol
     @Injected private var getSuggestionUseCase: GetSuggestionUseCaseProtocol
     @Injected private var getDefensiveCoverageUseCase: GetDefensiveCoverageUseCaseProtocol
@@ -19,7 +20,7 @@ class TeamViewModel: ObservableObject {
 
     private var cancellables: Set<AnyCancellable> = []
 
-    @Published var uiModel: TeamUiModel = .init()
+    @Published var uiModel = TeamUiModel()
 
     init() {
         getTeamUseCase.invoke()

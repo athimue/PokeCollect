@@ -12,5 +12,5 @@ struct TeamUiModel: Identifiable {
     var isLoading: Bool = true
     var team: [PokemonListItemModel] = []
     var suggestion: [PokemonListItemModel] = []
-    var defensiveCoverage = DefensiveCoverage()
+    var defensiveCoverage = DefensiveCoverage(summary: "", defensiveTypes: [])
 }
