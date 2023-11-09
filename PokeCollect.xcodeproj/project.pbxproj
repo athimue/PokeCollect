@@ -245,13 +245,8 @@
 		9302283F2AEAA5300032626F /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				938A58592AFCD1560041CECE /* Common */,
 				93853EDC2AFBE6F4003D50AE /* PokemonListItem */,
-				9376CC872AF92D2400BECBAB /* SearchBarView.swift */,
-				93853ED22AFBD9E3003D50AE /* TeamPokemonView.swift */,
-				93853ED42AFBDA15003D50AE /* NoTeamPokemonView.swift */,
-				93853ED62AFBDC2C003D50AE /* ProgressView.swift */,
-				93853ED82AFBDC84003D50AE /* SubTitleView.swift */,
-				9360991F2AFBEAE20062725C /* URLImage.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -301,6 +296,19 @@
 				93853EDA2AFBE0AA003D50AE /* PokemonListItemView.swift */,
 			);
 			path = PokemonListItem;
+			sourceTree = "<group>";
+		};
+		938A58592AFCD1560041CECE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9376CC872AF92D2400BECBAB /* SearchBarView.swift */,
+				93853ED22AFBD9E3003D50AE /* TeamPokemonView.swift */,
+				93853ED42AFBDA15003D50AE /* NoTeamPokemonView.swift */,
+				93853ED62AFBDC2C003D50AE /* ProgressView.swift */,
+				93853ED82AFBDC84003D50AE /* SubTitleView.swift */,
+				9360991F2AFBEAE20062725C /* URLImage.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		93AEE6222AEA529A0089E00E /* Repositories */ = {

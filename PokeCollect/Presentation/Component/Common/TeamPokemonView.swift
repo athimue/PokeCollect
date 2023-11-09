@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TeamPokemonView: View {
-    let pokemon: Pokemon
+    let pokemon: PokemonListItemModel
     let onDelete: () -> Void
 
     var body: some View {
