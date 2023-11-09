@@ -23,7 +23,6 @@
 		930B7F382AEBBBB80072EA92 /* AddPokemonToTeamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B7F372AEBBBB80072EA92 /* AddPokemonToTeamUseCase.swift */; };
 		930F5C692AF013E90064171C /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 930F5C682AF013E90064171C /* GRDB */; };
 		936099202AFBEAE20062725C /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9360991F2AFBEAE20062725C /* URLImage.swift */; };
-		9376CC702AF1AAE900BECBAB /* GRDBQuery in Frameworks */ = {isa = PBXBuildFile; productRef = 9376CC6F2AF1AAE900BECBAB /* GRDBQuery */; };
 		9376CC722AF8DE2900BECBAB /* DatabaseManager+Persistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376CC712AF8DE2900BECBAB /* DatabaseManager+Persistent.swift */; };
 		9376CC742AF8DE7F00BECBAB /* DatabaseManager+Migrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376CC732AF8DE7F00BECBAB /* DatabaseManager+Migrator.swift */; };
 		9376CC772AF8EB0800BECBAB /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376CC762AF8EB0800BECBAB /* CollectionViewModel.swift */; };
@@ -49,6 +48,7 @@
 		93853ED72AFBDC2C003D50AE /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93853ED62AFBDC2C003D50AE /* ProgressView.swift */; };
 		93853ED92AFBDC84003D50AE /* SubTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93853ED82AFBDC84003D50AE /* SubTitleView.swift */; };
 		93853EDB2AFBE0AA003D50AE /* PokemonListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93853EDA2AFBE0AA003D50AE /* PokemonListItemView.swift */; };
+		938A585C2AFCE2C20041CECE /* SimpleToast in Frameworks */ = {isa = PBXBuildFile; productRef = 938A585B2AFCE2C20041CECE /* SimpleToast */; };
 		93A98AA52AFA4B1C0098198B /* DeletePokemonFromCollectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A98AA42AFA4B1C0098198B /* DeletePokemonFromCollectionUseCase.swift */; };
 		93AEE6252AEA56CE0089E00E /* PokemonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AEE6242AEA56CE0089E00E /* PokemonRepository.swift */; };
 		93AEE6292AEA63C60089E00E /* Generation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AEE6282AEA63C60089E00E /* Generation.swift */; };
@@ -196,9 +196,9 @@
 			files = (
 				93DBD85B2AE0245F00CABCBD /* Resolver in Frameworks */,
 				930F5C692AF013E90064171C /* GRDB in Frameworks */,
-				9376CC702AF1AAE900BECBAB /* GRDBQuery in Frameworks */,
 				93DBD85D2AE0245F00CABCBD /* Resolver-Dynamic in Frameworks */,
 				93DBD8602AE0245F00CABCBD /* Resolver-Static in Frameworks */,
+				938A585C2AFCE2C20041CECE /* SimpleToast in Frameworks */,
 				93BBF9F32ADFFF4900FF903F /* OptionallyDecodable in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -520,7 +520,7 @@
 				93DBD85C2AE0245F00CABCBD /* Resolver-Dynamic */,
 				93DBD85F2AE0245F00CABCBD /* Resolver-Static */,
 				930F5C682AF013E90064171C /* GRDB */,
-				9376CC6F2AF1AAE900BECBAB /* GRDBQuery */,
+				938A585B2AFCE2C20041CECE /* SimpleToast */,
 			);
 			productName = PokeCollect;
 			productReference = 93BBF9992ADFC40300FF903F /* PokeCollect.app */;
@@ -602,7 +602,7 @@
 				93BBF9F12ADFFF4900FF903F /* XCRemoteSwiftPackageReference "OptionallyDecodable" */,
 				93BBF9F62AE01F1500FF903F /* XCRemoteSwiftPackageReference "Resolver" */,
 				930F5C672AF013E90064171C /* XCRemoteSwiftPackageReference "GRDB.swift" */,
-				9376CC6E2AF1AAE900BECBAB /* XCRemoteSwiftPackageReference "GRDBQuery" */,
+				938A585A2AFCE2C20041CECE /* XCRemoteSwiftPackageReference "SimpleToast" */,
 			);
 			productRefGroup = 93BBF99A2ADFC40300FF903F /* Products */;
 			projectDirPath = "";
@@ -1048,12 +1048,12 @@
 				kind = branch;
 			};
 		};
-		9376CC6E2AF1AAE900BECBAB /* XCRemoteSwiftPackageReference "GRDBQuery" */ = {
+		938A585A2AFCE2C20041CECE /* XCRemoteSwiftPackageReference "SimpleToast" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/groue/GRDBQuery";
+			repositoryURL = "https://github.com/sanzaru/SimpleToast";
 			requirement = {
 				kind = exactVersion;
-				version = 0.7.0;
+				version = 0.8.1;
 			};
 		};
 		93BBF9F12ADFFF4900FF903F /* XCRemoteSwiftPackageReference "OptionallyDecodable" */ = {
@@ -1080,10 +1080,10 @@
 			package = 930F5C672AF013E90064171C /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
 		};
-		9376CC6F2AF1AAE900BECBAB /* GRDBQuery */ = {
+		938A585B2AFCE2C20041CECE /* SimpleToast */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9376CC6E2AF1AAE900BECBAB /* XCRemoteSwiftPackageReference "GRDBQuery" */;
-			productName = GRDBQuery;
+			package = 938A585A2AFCE2C20041CECE /* XCRemoteSwiftPackageReference "SimpleToast" */;
+			productName = SimpleToast;
 		};
 		93BBF9F22ADFFF4900FF903F /* OptionallyDecodable */ = {
 			isa = XCSwiftPackageProductDependency;

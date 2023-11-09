@@ -10,6 +10,6 @@ import Foundation
 
 protocol CollectionRepository {
     func getCollection() -> AnyPublisher<[Pokemon], Error>
-    func addPokemon(pokemonId: Int) throws -> Void
-    func removePokemon(pokemonId: Int) throws -> Void
+    func addPokemon(pokemonId: Int) -> Bool
+    func removePokemon(pokemonId: Int) -> Bool
 }

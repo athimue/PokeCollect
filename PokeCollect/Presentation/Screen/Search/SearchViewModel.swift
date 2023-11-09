@@ -31,18 +31,10 @@ class SearchViewModel: ObservableObject {
     }
     
     func addPokemonToCollection(pokemonId: Int) {
-        do { try addPokemonToCollection.invoke(pokemonId: pokemonId) }
-        catch {
-            print(error)
-        }
+        addPokemonToCollection.invoke(pokemonId: pokemonId) ? (uiModel.showSuccessToast = true) : (uiModel.showErrorToast = true)
     }
     
     func addPokemonToTeam(pokemonId: Int) {
-        let isAdded = addPokemonToTeam.invoke(pokemonId: pokemonId)
-        if isAdded {
-            print("ajouté")
-        } else {
-            print("non ajouté")
-        }
+        addPokemonToTeam.invoke(pokemonId: pokemonId) ? (uiModel.showSuccessToast = true) : (uiModel.showErrorToast = true)
     }
 }

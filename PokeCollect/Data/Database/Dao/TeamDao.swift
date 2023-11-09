@@ -22,9 +22,14 @@ struct TeamDao {
         return publisher.eraseToAnyPublisher()
     }
     
-    func removePokemon(pokemonId: Int) throws {
-        try databaseManager.writer.write { db in
-            _ = try TeamMember.filter(Column("pokemonId") == pokemonId).deleteAll(db)
+    func removePokemon(pokemonId: Int) -> Bool {
+        do {
+            try databaseManager.writer.write { db in
+                _ = try TeamMember.filter(Column("pokemonId") == pokemonId).deleteAll(db)
+            }
+            return true
+        } catch {
+            return false
         }
     }
     
@@ -42,7 +47,6 @@ struct TeamDao {
             return false
         }
         catch {
-            print("error")
             return false
         }
     }

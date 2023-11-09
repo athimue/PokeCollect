@@ -24,7 +24,9 @@ class CollectionViewModel: ObservableObject {
             .sink(
                 receiveCompletion: { _ in },
                 receiveValue: { pokemons in
-                    self.uiModel.collection = pokemons.map { result in PokemonListItemModel(id: result.id, name: result.name, image: result.image, types: result.types) }
+                    self.uiModel.collection = pokemons
+                        .map { result in PokemonListItemModel(id: result.id, name: result.name, image: result.image, types: result.types) }
+                        .sorted { $0.id < $1.id }
                     self.uiModel.isLoading = false
                 })
             .store(in: &cancellables)

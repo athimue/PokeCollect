@@ -9,13 +9,13 @@ import Foundation
 import Resolver
 
 protocol DeletePokemonFromTeamUseCaseProtocol {
-    func invoke(pokemonId: Int) throws -> Void
+    func invoke(pokemonId: Int) -> Bool
 }
 
 class DeletePokemonFromTeamUseCase: DeletePokemonFromTeamUseCaseProtocol {
     @Injected private var teamDao: TeamDao
 
-    func invoke(pokemonId: Int) throws {
-        try teamDao.removePokemon(pokemonId: pokemonId)
+    func invoke(pokemonId: Int) -> Bool {
+        teamDao.removePokemon(pokemonId: pokemonId)
     }
 }

@@ -10,4 +10,6 @@ import Foundation
 struct SearchUiModel: Identifiable {
     let id = UUID()
     var result: [PokemonListItemModel] = []
+    var showSuccessToast : Bool = false
+    var showErrorToast : Bool = false
 }

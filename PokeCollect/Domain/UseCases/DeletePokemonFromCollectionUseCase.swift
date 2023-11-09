@@ -9,13 +9,13 @@ import Foundation
 import Resolver
 
 protocol DeletePokemonFromCollectionUseCaseProtocol {
-    func invoke(pokemonId: Int) throws -> Void
+    func invoke(pokemonId: Int) -> Bool
 }
 
 class DeletePokemonFromCollectionUseCase: DeletePokemonFromCollectionUseCaseProtocol {
     @Injected private var collectonRepository: CollectionRepository
 
-    func invoke(pokemonId: Int) throws {
-        try collectonRepository.removePokemon(pokemonId: pokemonId)
+    func invoke(pokemonId: Int) -> Bool {
+        collectonRepository.removePokemon(pokemonId: pokemonId)
     }
 }

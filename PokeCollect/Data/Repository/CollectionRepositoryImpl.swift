@@ -13,12 +13,12 @@ struct CollectionRepositoryImpl: CollectionRepository {
     @Injected private var collectionDao: CollectionDao
     @Injected private var pokemonAPI: PokemonAPIProtocol
 
-    func addPokemon(pokemonId: Int) throws {
-        try collectionDao.addPokemon(pokemonEntity: CollectionMember(pokemonId: pokemonId))
+    func addPokemon(pokemonId: Int) -> Bool {
+        collectionDao.addPokemon(pokemonEntity: CollectionMember(pokemonId: pokemonId))
     }
 
-    func removePokemon(pokemonId: Int) throws {
-        try collectionDao.removePokemon(pokemonId: pokemonId)
+    func removePokemon(pokemonId: Int) -> Bool {
+        collectionDao.removePokemon(pokemonId: pokemonId)
     }
 
     func getCollection() -> AnyPublisher<[Pokemon], Error> {
