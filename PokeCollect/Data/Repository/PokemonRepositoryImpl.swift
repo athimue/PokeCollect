@@ -9,7 +9,14 @@ import Foundation
 import Resolver
 
 struct PokemonRepositoryImpl: PokemonRepository {
+    
     @Injected private var pokemonApi: PokemonAPIProtocol
+    
+    func fetchPokemon(pokemonId: Int) -> AnyPublisher<Pokemon, Error> {
+        pokemonApi.fetchPokemon(pokemonId: pokemonId)
+            .map { pokemonResult in Pokemon(id: pokemonResult.id, name: pokemonResult.name, image: pokemonResult.image, types: pokemonResult.apiTypes.map { $0.toType })
+        }.eraseToAnyPublisher()
+    }
     
     func fetchPokemons(query: String) -> AnyPublisher<[Pokemon], Error> {
         pokemonApi.fetchSearch(query: query).map { pokemonResult in [Pokemon(id: pokemonResult.id, name: pokemonResult.name, image: pokemonResult.image, types: pokemonResult.apiTypes.map { $0.toType })]

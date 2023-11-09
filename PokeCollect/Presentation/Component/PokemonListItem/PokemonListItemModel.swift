@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PokemonListItemModel: Identifiable {
+struct PokemonListItemModel: Identifiable, Hashable {
     var id: Int
     var name: String
     var image: String

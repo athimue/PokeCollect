@@ -10,6 +10,7 @@ import Foundation
 import Resolver
 
 protocol PokemonRepository {
+    func fetchPokemon(pokemonId: Int) -> AnyPublisher<Pokemon, Error>
     func fetchPokemons(query: String) -> AnyPublisher<[Pokemon], Error>
     func fetchPokemonGeneration(generation: Int) -> AnyPublisher<[Pokemon], Error>
     func fetchSuggestion(team: [Pokemon]) -> AnyPublisher<[Pokemon], Error>

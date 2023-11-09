@@ -71,6 +71,9 @@ extension Resolver: ResolverRegistering {
             GetSuggestionUseCase() as GetSuggestionUseCaseProtocol
         }
         register {
+            GetPokemonUseCase() as GetPokemonUseCaseProtocol
+        }
+        register {
             GetDefensiveCoverageUseCase() as GetDefensiveCoverageUseCaseProtocol
         }
         register {
