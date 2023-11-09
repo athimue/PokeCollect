@@ -10,7 +10,7 @@ import Foundation
 struct TeamUiModel: Identifiable {
     let id = UUID()
     var isLoading: Bool = true
-    var team: [Pokemon] = []
+    var team: [PokemonListItemModel] = []
     var suggestion: [PokemonListItemModel] = []
     var defensiveCoverage = DefensiveCoverage()
 }

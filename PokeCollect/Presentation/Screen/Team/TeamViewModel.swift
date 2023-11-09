@@ -28,6 +28,8 @@ class TeamViewModel: ObservableObject {
                 receiveCompletion: { _ in },
                 receiveValue: { pokemonTeam in
                     self.uiModel.team = pokemonTeam
+                        .map { result in PokemonListItemModel(id: result.id, name: result.name, image: result.image, types: result.types) }
+                        .sorted { $0.id < $1.id }
                     self.loadData(team: pokemonTeam)
                 })
             .store(in: &cancellables)
