@@ -16,5 +16,5 @@ struct Pokemon: Codable, Hashable, Identifiable {
     var stats: [Statistic]
     var resistances : [Resistance]
     var evolutions : [Evolution]
-    var preEvolutions : Evolution?
+    var preEvolution : Evolution?
 }

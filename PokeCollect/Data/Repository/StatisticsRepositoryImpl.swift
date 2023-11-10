@@ -15,15 +15,16 @@ struct StatisticsRepositoryImpl: StatisticsRepository {
     func getDefensiveCoverage(team: [Pokemon]) -> AnyPublisher<DefensiveCoverage, Error> {
         pokemonAPI.fetchDefensiveCoverage(team: team).map {
             defCoverageDtoArray in
-                DefensiveCoverage(
-                    summary: defCoverageDtoArray[0].summary!,
-                    defensiveTypes: defCoverageDtoArray.map {
-                        defCoverageDto in DefensiveType(
-                            name: defCoverageDto.name,
-                            result: defCoverageDto.result,
-                            image: "https://static.wikia.nocookie.net/pokemongo/images/\(PokemonTranslator.translateType(defCoverageDto.name)).png"
-                        )
-                    })
+            DefensiveCoverage(
+                summary: defCoverageDtoArray[0].summary!,
+                defensiveTypes: defCoverageDtoArray.map {
+                    defCoverageDto in DefensiveType(
+                        name: defCoverageDto.name,
+                        result: defCoverageDto.result,
+                        image: "https://static.wikia.nocookie.net/pokemongo/images/\(PokemonTranslator.translateType(defCoverageDto.name)).png"
+                    )
+                }
+            )
         }.eraseToAnyPublisher()
     }
 }

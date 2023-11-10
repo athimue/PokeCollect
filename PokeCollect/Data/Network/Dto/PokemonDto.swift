@@ -74,4 +74,42 @@ struct PokemonDto: Codable {
         apiPreEvolution = try values.decode(APIPreEvolutionUnion.self, forKey: .apiPreEvolution)
         apiResistancesWithAbilities = try values.decode([ApiResistanceDto].self, forKey: .apiResistancesWithAbilities)
     }
+    
+    private func getPreEvolution(pokemonResult: APIPreEvolutionUnion) -> Evolution? {
+        switch pokemonResult {
+            case .apiPreEvolutionClass(let dto):
+                return Evolution(name: dto.name, pokedexId: dto.pokedexIdd)
+            case .enumeration(_):
+                return nil
+        }
+    }
+}
+
+extension PokemonDto {
+    var toPokemon: Pokemon {
+        Pokemon(
+            id: self.id,
+            name: self.name,
+            generation: self.apiGeneration,
+            image: self.image,
+            types: self.apiTypes.map { $0.toType },
+            stats: self.stats.toStats,
+            resistances: self
+                .apiResistances
+                .map {
+                    resistanceDto in
+                    Resistance(
+                        name: "https://static.wikia.nocookie.net/pokemongo/images/\(PokemonTranslator.translateType(resistanceDto.name ?? "f/fb/Normal")).png",
+                        damageMultiplier: resistanceDto.damage_multiplier,
+                        damageRelation: resistanceDto.damage_relation
+                    )
+                },
+            evolutions: self
+                .apiEvolutions
+                .map {
+                    evolutionDto in Evolution(name: evolutionDto.name, pokedexId: evolutionDto.pokedexId)
+                },
+            preEvolution: getPreEvolution(pokemonResult: self.apiPreEvolution)
+        )
+    }
 }

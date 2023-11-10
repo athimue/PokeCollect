@@ -23,27 +23,7 @@ struct TeamRepositoryImpl: TeamRepository {
             }
             .map { pokemonDtos in
                 pokemonDtos.map { pokemonDto in
-                    Pokemon(
-                        id: pokemonDto.id,
-                        name: pokemonDto.name,
-                        generation: pokemonDto.apiGeneration,
-                        image: pokemonDto.image,
-                        types: pokemonDto.apiTypes.map { $0.toType },
-                        stats: pokemonDto.stats.toStats,
-                        resistances: pokemonDto
-                            .apiResistances
-                            .map { resistanceDto in Resistance(
-                                name: "https://static.wikia.nocookie.net/pokemongo/images/\(PokemonTranslator.translateType(resistanceDto.name ?? "f/fb/Normal")).png",
-                                damageMultiplier: resistanceDto.damage_multiplier,
-                                damageRelation: resistanceDto.damage_relation)
-                            },
-                        evolutions: pokemonDto
-                            .apiEvolutions
-                            .map {
-                                evolutionDto in Evolution(name: evolutionDto.name, pokedexId: evolutionDto.pokedexId)
-                            },
-                        preEvolutions: Evolution(name: "", pokedexId: 1)
-                    )
+                    pokemonDto.toPokemon
                 }
             }
             .eraseToAnyPublisher()
@@ -53,7 +33,7 @@ struct TeamRepositoryImpl: TeamRepository {
         return teamDao.addPokemon(teamMember: TeamMember(pokemonId: pokemonId))
     }
 
-    func removePokemon(pokemonId: Int) throws {
-        try teamDao.removePokemon(pokemonId: pokemonId)
+    func removePokemon(pokemonId: Int) -> Bool {
+        teamDao.removePokemon(pokemonId: pokemonId)
     }
 }
