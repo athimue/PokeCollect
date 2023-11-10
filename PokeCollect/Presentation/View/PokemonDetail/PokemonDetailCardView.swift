@@ -19,12 +19,16 @@ struct PokemonDetailCardView: View {
                         Text(pokemon.name.capitalized)
                             .font(.largeTitle)
                             .fontWeight(.bold)
+                        Text(String(pokemon.id))
+                            .font(.title)
+                            .fontWeight(.bold)
                         HStack {
                             ForEach(pokemon.types) {
                                 type in
                                 HStack {
                                     URLImage(url: type.image, defaultImage: "photo", size: 80)
-                                    Text(type.name)
+                                    Text(type.name).font(.title)
+                                        .fontWeight(.bold)
                                 }
                             }
                         }
