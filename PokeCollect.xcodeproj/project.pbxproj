@@ -325,6 +325,7 @@
 		938A58592AFCD1560041CECE /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				938A58642AFCECA30041CECE /* PokemonDetailCardView.swift */,
 				9376CC872AF92D2400BECBAB /* SearchBarView.swift */,
 				93853ED22AFBD9E3003D50AE /* TeamPokemonView.swift */,
 				93853ED42AFBDA15003D50AE /* NoTeamPokemonView.swift */,
@@ -344,7 +345,6 @@
 				938A585E2AFCEC0E0041CECE /* PokemonDetailView.swift */,
 				938A58602AFCEC280041CECE /* PokemonDetailViewModel.swift */,
 				938A58622AFCEC540041CECE /* PokemonDetailUiModel.swift */,
-				938A58642AFCECA30041CECE /* PokemonDetailCardView.swift */,
 			);
 			path = PokemonDetail;
 			sourceTree = "<group>";

@@ -22,7 +22,7 @@ struct URLImage: View {
                         .shadow(color: .gray, radius: 5, x: 0, y: 0)
                 default:
                     Image(systemName: defaultImage)
-                        .frame(width: size, height: size)
+                        .font(.system(size: size - 5))
                         .foregroundColor(.gray)
             }
         }

@@ -17,7 +17,7 @@ struct SearchView: View {
 
         NavigationView {
             VStack {
-                Text("Search")
+                Text("SEARCH")
                     .font(.system(size: 20, weight: .bold, design: .monospaced))
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
                     .listRowSeparator(.hidden)

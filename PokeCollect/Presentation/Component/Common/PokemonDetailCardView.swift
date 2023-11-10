@@ -19,7 +19,7 @@ struct PokemonDetailCardView: View {
                         Text(pokemon.name.capitalized)
                             .font(.largeTitle)
                             .fontWeight(.bold)
-                        Text(String(pokemon.id))
+                        Text("Pokedex ID : " + String(pokemon.id))
                             .font(.title)
                             .fontWeight(.bold)
                         HStack {
