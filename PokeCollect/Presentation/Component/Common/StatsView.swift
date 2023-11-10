@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct StatsView: View {
+    
     let statistics : [Statistic]
+    
     var body: some View {
         Text("Stats")
             .font(.title)

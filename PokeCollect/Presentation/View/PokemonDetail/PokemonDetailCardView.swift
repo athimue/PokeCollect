@@ -32,37 +32,9 @@ struct PokemonDetailCardView: View {
                         Divider()
                         StatsView(statistics: pokemon.stats)
                         Divider()
-                        ResistanceListView(resistances: pokemon.resistances)
+                        ResistancesView(resistances: pokemon.resistances)
                         Divider()
-                        Text("Evolution")
-                            .font(.title)
-                            .fontWeight(.semibold)
-                        HStack {
-                            VStack {
-                                Text("Pre Evolution")
-                                HStack {
-                                    if pokemon.preEvolutions != nil {
-                                        Text(String(pokemon.preEvolutions?.pokedexId ?? 0))
-                                        Text(pokemon.preEvolutions?.name ?? "")
-                                    } else {
-                                        Text("No Evolution")
-                                    }
-                                }
-                            }.frame(maxWidth: .infinity)
-                            VStack {
-                                Text("Evolution")
-                                if pokemon.evolutions.count > 0 {
-                                    ForEach(pokemon.evolutions) { evolution in
-                                        HStack {
-                                            Text(String(evolution.pokedexId))
-                                            Text(evolution.name)
-                                        }
-                                    }
-                                } else {
-                                    Text("No Evolution")
-                                }
-                            }.frame(maxWidth: .infinity)
-                        }.frame(maxWidth: .infinity)
+                        EvolutionView(preEvolution: pokemon.preEvolution, evolutions: pokemon.evolutions)
                     }
                     .padding()
                 }.listStyle(.plain)

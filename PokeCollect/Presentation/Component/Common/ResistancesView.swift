@@ -1,5 +1,5 @@
 //
-//  ResistanceListView.swift
+//  ResistancesView.swift
 //  PokeCollect
 //
 //  Created by Clusel Mathieu on 10/11/2023.
@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-struct ResistanceListView: View {
+struct ResistancesView: View {
+    
     let resistances : [Resistance]
+    
     var body: some View {
         Text("Resistances")
             .font(.title)
