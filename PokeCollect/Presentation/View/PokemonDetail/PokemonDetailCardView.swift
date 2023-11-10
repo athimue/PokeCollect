@@ -30,30 +30,9 @@ struct PokemonDetailCardView: View {
                         }
                         .padding()
                         Divider()
-                        Text("Stats")
-                            .font(.title)
-                            .fontWeight(.semibold)
-                        HStack {
-                            ForEach(pokemon.stats) { statistic in
-                                VStack {
-                                    HStack { Text(statistic.name) }
-                                    HStack { Text(String(statistic.value)) }
-                                }.frame(maxWidth: .infinity)
-                            }
-                        }.frame(maxWidth: .infinity)
+                        StatsView(statistics: pokemon.stats)
                         Divider()
-                        Text("Resistances")
-                            .font(.title)
-                            .fontWeight(.semibold)
-                        VStack {
-                            ForEach(pokemon.resistances) { resistance in
-                                HStack {
-                                    HStack { URLImage(url: resistance.name, defaultImage: "photo", size: 40) }.frame(maxWidth: .infinity)
-                                    HStack { Text(String(resistance.damageMultiplier ?? 0)).fontWeight(.semibold) }.frame(maxWidth: .infinity)
-                                    HStack { Text(resistance.damageRelation ?? "No value") }.frame(maxWidth: .infinity)
-                                }.frame(maxWidth: .infinity)
-                            }.frame(maxWidth: .infinity)
-                        }
+                        ResistanceListView(resistances: pokemon.resistances)
                         Divider()
                         Text("Evolution")
                             .font(.title)
@@ -91,7 +70,3 @@ struct PokemonDetailCardView: View {
         }
     }
 }
-
-// var resistances : [Resistance]
-// var evolutions : [Evolution]
-// var preEvolutions : Evolution
